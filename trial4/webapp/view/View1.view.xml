@@ -20,7 +20,7 @@
 				</extension>
 				<columns>
 					<Column id="_IDGenColumn" width="11rem">
-						<m:Label id="_IDGenLabel" text="Product Name" />
+						<m:Label id="_IDGenLabel" text="Product Name test" />
 						<template>
 							<m:Text id="_IDGenText" text="{Products>Name}" wrapping="false" />
 						</template>
