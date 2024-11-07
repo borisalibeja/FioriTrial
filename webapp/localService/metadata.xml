@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZACA_CUSTOM_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="zcustomer" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                </Key>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer"/>
+                <Property Name="Name1" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Name 1"/>
+                <Property Name="Name2" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Name 2"/>
+                <Property Name="Stcd1" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="Tax Number 1"/>
+                <Property Name="Stcd2" Type="Edm.String" MaxLength="11" sap:unicode="false" sap:label="Tax Number 2"/>
+                <Property Name="SmtpAddr" Type="Edm.String" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Street"/>
+                <Property Name="City1" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="City"/>
+                <Property Name="TelNumber" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Telephone"/>
+                <Property Name="Stkzn" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Natural person"/>
+            </EntityType>
+            <EntityContainer Name="ZACA_CUSTOM_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zcustomerSet" EntityType="ZACA_CUSTOM_SRV.zcustomer" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://s4h.eeslab.cloud/sap/opu/odata/sap/ZACA_CUSTOM_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4h.eeslab.cloud/sap/opu/odata/sap/ZACA_CUSTOM_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
