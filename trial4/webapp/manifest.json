@@ -104,7 +104,7 @@
           "name": "RouteView1",
           "pattern": ":?query:",
           "target": [
-             "TargetView2"
+             "TargetView1"
             
           ]
         }

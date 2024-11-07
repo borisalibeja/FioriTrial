@@ -4,37 +4,37 @@
     xmlns="sap.ui.table"
     xmlns:u="sap.ui.unified"
     xmlns:c="sap.ui.core"
-    xmlns:smartTable="sap.ui.comp.smarttable"
-    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+    xmlns:st="sap.ui.comp.smarttable"
+    xmlns:sfb="sap.ui.comp.smartfilterbar" 
     xmlns:m="sap.m" >
 
     <m:Page id="page2" title="{i18n>title}">
         <m:content>
             <m:VBox id="_IDGenVBox" fitContainer="true">
-                <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="LineItemsSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Products>Bukrs" enableBasicSearch="true">
-                    <smartFilterBar:controlConfiguration>
-                        <smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration1" key="Bukrs">
-                            <smartFilterBar:defaultFilterValues>
-                                <smartFilterBar:SelectOption id="_IDGenSelectOption" low="0001"/>
-                            </smartFilterBar:defaultFilterValues>
-                        </smartFilterBar:ControlConfiguration>
-                        <smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2" key="Gjahr">
-                            <smartFilterBar:defaultFilterValues>
-                                <smartFilterBar:SelectOption id="_IDGenSelectOption1" low="2014"/>
-                            </smartFilterBar:defaultFilterValues>
-                        </smartFilterBar:ControlConfiguration>
-                    </smartFilterBar:controlConfiguration>
+                <sfb:SmartFilterBar id="sfb" entitySet="LineItemsSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Products>Bukrs" enableBasicSearch="true">
+                    <sfb:controlConfiguration>
+                        <sfb:ControlConfiguration id="_IDGenControlConfiguration1" key="Bukrs">
+                            <sfb:defaultFilterValues>
+                                <sfb:SelectOption id="_IDGenSelectOption" low="0001"/>
+                            </sfb:defaultFilterValues>
+                        </sfb:ControlConfiguration>
+                        <sfb:ControlConfiguration id="_IDGenControlConfiguration2" key="Gjahr">
+                            <sfb:defaultFilterValues>
+                                <sfb:SelectOption id="_IDGenSelectOption1" low="2014"/>
+                            </sfb:defaultFilterValues>
+                        </sfb:ControlConfiguration>
+                    </sfb:controlConfiguration>
                     <!-- layout data used to make the table grow but keep the filter bar fixed -->
-                    <smartFilterBar:layoutData>
+                    <sfb:layoutData>
                         <m:FlexItemData id="_IDGenFlexItemData" shrinkFactor="0"/>
-                    </smartFilterBar:layoutData>
-                </smartFilterBar:SmartFilterBar>
-                <smartTable:SmartTable id="LineItemsSmartTable" entitySet="LineItemsSet" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true">
+                    </sfb:layoutData>
+                </sfb:SmartFilterBar>
+                <st:SmartTable id="LineItemsst" entitySet="LineItemsSet" smartFilterId="sfb" tableType="Table"  beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true" persistencyKey="stAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true">
                     <!-- layout data used to make the table grow but keep the filter bar fixed -->
-                    <smartTable:layoutData>
+                    <st:layoutData>
                         <m:FlexItemData id="_IDGenFlexItemData1" growFactor="1" baseSize="0%"/>
-                    </smartTable:layoutData>
-                </smartTable:SmartTable>
+                    </st:layoutData>
+                </st:SmartTable>
             </m:VBox>
         </m:content>
     </m:Page>
