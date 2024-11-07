@@ -8,7 +8,7 @@ sap.ui.define([
     function (Controller, MessageBox, JSONModel, Filter, FilterOperator) {
         "use strict";
 
-        return Controller.extend("freestyleapp.controller.List", {
+        return Controller.extend("trial4.controller.List", {
             onInit: function () {
                 this.getOwnerComponent().getRouter().getRoute("RouteDetail").attachPatternMatched(this._onObjectMatched, this);
             },

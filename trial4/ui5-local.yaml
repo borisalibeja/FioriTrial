@@ -6,7 +6,7 @@ metadata:
 type: application
 framework:
   name: SAPUI5
-  version: 1.130.0
+  version: 1.129.2
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -28,10 +28,12 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: true # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - path: /
-            url: https://academytrial.dest
+          - path: /odata/
+            client: '500'
+            destination: academytrial_cloning
+
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

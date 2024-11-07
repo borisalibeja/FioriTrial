@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("freestyleapp.controller.App", {
+      return BaseController.extend("trial4.controller.App", {
         onInit: function() {
         }
       });

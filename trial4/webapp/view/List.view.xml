@@ -1,4 +1,4 @@
-<mvc:View controllerName="freestyleapp.controller.List"
+<mvc:View controllerName="trial4.controller.List"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
