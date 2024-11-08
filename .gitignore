@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+node_modules/
+dist/
+.scp/
+.env
+Makefile*.mta
+mta_archives
+mta-*
+resources
+archive.zip
+.*_mta_build_tmp
+=======
 
 # auto generated wildcard
 .vscode/.env
+>>>>>>> a9882538ebe715382ff033d96aa52710fec2d6df

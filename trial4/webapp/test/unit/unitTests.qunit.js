@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"trial4/test/unit/AllTests"
+		"freestyleapp/test/unit/AllTests"
 	], function () {
 		QUnit.start();
 	});

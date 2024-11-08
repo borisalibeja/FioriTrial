@@ -16,7 +16,7 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /
+          - path: /odata/
             url: https://academytrial.dest
     - name: fiori-tools-appreload
       afterMiddleware: compression

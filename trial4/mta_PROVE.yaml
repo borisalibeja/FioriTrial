@@ -33,17 +33,31 @@ modules:
   requires:
   - name: trial4_html_repo_runtime
   - name: uaa_trial4
+  - name: trial4-destination-service
+  - name: trial4-conn
+  - name: portal_resources_trial4
   parameters:
     disk-quota: 256M
     memory: 256M
-
-resources:
-- name: trial4_html_repo_host
-  type: org.cloudfoundry.managed-service
+- name: trial4_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: trial4_html_repo_host
+    parameters:
+      content-target: true
+- name: trial4-flp
+  type: com.sap.portal.content
+  path: trial4-flp
   parameters:
-    service: html5-apps-repo
-    service-name: trial4-html5-srv
-    service-plan: app-host
+      memory: 128M
+      buildpack: nodejs_buildpack
+  requires:
+    - name: portal_resources_trial4
+    - name: uaa_trial4
+    - name: trial4_html_repo_host
+    - name: trial4_html_repo_runtime      
+resources:
 - name: trial4-repo-host
   type: org.cloudfoundry.managed-service
   parameters:
@@ -68,11 +82,26 @@ resources:
     service: destination
     service-name: trial4-destination-service
     service-plan: lite
+- name: portal_resources_trial4
+  parameters:
+    service-plan: standard
+    service: portal
+  type: org.cloudfoundry.managed-service    
 - name: trial4_html_repo_runtime
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
     service-plan: app-runtime
+- name: trial4_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: trial4-conn
+  parameters:
+    service-plan: lite
+    service: connectivity
+    type: org.cloudfoundry.managed-service         
 - name: uaa_trial4
   type: org.cloudfoundry.managed-service
   parameters:

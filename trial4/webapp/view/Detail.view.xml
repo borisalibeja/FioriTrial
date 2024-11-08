@@ -1,0 +1,69 @@
+<mvc:View controllerName="trial4.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants"
+    xmlns:l="sap.ui.layout">
+    <f:DynamicPage headerExpanded="true">
+        <f:content>
+            <FlexBox alignContent="Center" alignItems="Center" justifyContent="Center">
+                <Panel width="100%" class="sapUiResponsiveMargin" backgroundDesign="Solid">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="Client Detail"/>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <l:HorizontalLayout class="sapUiMediumMarginBeginEnd">
+                            <Image src="https://images.desenio.com/zoom/wb0125-8batman-portrait50x70-55544-10774.jpg" width="10em" />
+                        </l:HorizontalLayout>
+                        <l:VerticalLayout class="sapUiMediumMarginBeginEnd">
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textA" text="Name" class="MyBold" width="100px"/>
+                                <Text id="text1" text="{detailModel>/Name1}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textB" text="Surname" class="MyBold" width="100px"/>
+                                <Text id="text2" text="{detailModel>/Name2}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textC" text="E-mail" class="MyBold" width="100px"/>
+                                <Text id="text3" text="{detailModel>/SmtpAddr}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textD" text="Field1" class="MyBold" width="100px"/>
+                                <Text id="text4" text="{detailModel>/Stcd1}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textE" text="Field2" class="MyBold" width="100px"/>
+                                <Text id="text5" text="{detailModel>/Stcd2}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textF" text="Field3" class="MyBold" width="100px"/>
+                                <Text id="text6" text="{detailModel>/Stkzn}"/>
+                            </HBox> 
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textK" text="City" class="MyBold" width="100px"/>
+                                <Text id="text9" text="{detailModel>/City1}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textG" text="Address" class="MyBold" width="100px"/>
+                                <Text id="text7" text="{detailModel>/Street}"/>
+                            </HBox>
+                            <HBox class="sapUiTinyMarginBottom">
+                                <Text id="textJ" text="Phone Number" class="MyBold" width="100px"/>
+                                <Text id="text8" text="{detailModel>/TelNumber}"/>
+                            </HBox>
+
+
+
+
+                        </l:VerticalLayout>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

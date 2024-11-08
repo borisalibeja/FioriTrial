@@ -1,23 +1,23 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Nov 06 2024 08:39:59 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Fri Oct 18 2024 07:33:15 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.15.3|
+|**App Generator Version**<br>1.15.2|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>simple|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>https://academytrial.dest/|
-|**Module Name**<br>trial4|
+|**Service URL**<br>https://odata_zaca_dest_cloning.dest/|
+|**Module Name**<br>freestyleapp|
 |**Application Title**<br>App Title|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.130.0|
+|**UI5 Version**<br>1.129.2|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## trial4
+## freestyleapp
 
 An SAP Fiori application.
 

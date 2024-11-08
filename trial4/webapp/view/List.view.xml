@@ -1,0 +1,82 @@
+<mvc:View controllerName="trial4.controller.List"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants">
+    <f:DynamicPage headerExpanded="true">
+        <f:header>
+            <f:DynamicPageHeader>
+                <f:content>
+                    <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="onSearch">
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem name="Name1" label="ID" groupName="Group1" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input id="filterName1"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem name="SmtpAddr" label="E-mail" groupName="Group1" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input id="filterName2"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem name="City1" label="City" groupName="Group1" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input id="filterName3"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table id="table" inset="false" items="{listModel>/}">
+                <columns>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="ID"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="E-mail"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Field"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Field2"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Field3"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="City"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Address"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Phone Number"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier title="{listModel>Name1}" text="{listModel>Name2}" />
+                            <Text text="{listModel>SmtpAddr}" />
+                            <Text text="{listModel>Stcd1}" />
+                            <Text text="{listModel>Stcd2}" />
+                            <Text text="{listModel>Stkzn}" />
+                            <Text text="{listModel>City1}" />
+                            <Text text="{listModel>Street}" />
+                            <Text text="{listModel>TelNumber}" />
+                            <Button icon="sap-icon://navigation-right-arrow" type="Transparent" press="onTableSelection"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

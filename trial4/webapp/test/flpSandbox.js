@@ -40,7 +40,7 @@ sap.ui.define([
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
 									"title": "App Title",
-									"targetURL": "#trial4-display"
+									"targetURL": "#freestyleapp-display"
 								}
 							}]
 						}]
@@ -51,8 +51,8 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"trial4-display": {
-								"semanticObject": "trial4",
+							"freestyleapp-display": {
+								"semanticObject": "freestyleapp",
 								"action": "display",
 								"description": "An SAP Fiori application.",
 								"title": "App Title",
@@ -61,8 +61,8 @@ sap.ui.define([
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=trial4",
-									"url": sap.ui.require.toUrl("trial4")
+									"additionalInformation": "SAPUI5.Component=freestyleapp",
+									"url": sap.ui.require.toUrl("freestyleapp")
 								}
 							}
 						}

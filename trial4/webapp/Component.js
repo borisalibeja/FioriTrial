@@ -29,6 +29,33 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+                this.getRolesAttribute();
+            },
+            getRolesAttribute(){
+                
+                let appId = this.getManifestEntry("/sap.app/id");
+				let appPath = appId.replaceAll(".", "/");
+				let appModulePath = jQuery.sap.getModulePath(appPath);
+ 
+				     
+			    //let url = appModulePath + "/user-api/currentUser$";
+                let url = appModulePath + "/user-api/attributes$";
+                let that = this;
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    async: false,
+                    
+                    success: function (result, xhr, data) {
+                       // that.setModel(new sap.ui.model.json.JSONModel(result), "UserInfo");
+                       console.log("ok");
+                       
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                       
+                    }
+                });
             }
         });
     }
