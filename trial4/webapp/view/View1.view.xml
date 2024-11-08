@@ -7,108 +7,111 @@
 	xmlns:m="sap.m" >
 
     <m:Page id="page" title="{i18n>title}">
-        	<m:content>
+        <m:content>
+
+			<!-- Filter Toolbar -->
+			<m:Toolbar id="_IDGenToolbar1">
+
+				<m:Label id="_IDGenLabel" text="Client ID" />
+				<m:Input id="clientIDFilter" placeholder="Enter Client ID" />
+				
+				<m:Label id="_IDGenLabel11" text="Client Name" />
+				<m:Input id="clientNameFilter" placeholder="Enter Client Name" />
+
+				<m:Button id="_IDGenButton" text="Apply Filters" press="onApplyFilters" />
+
+			</m:Toolbar>
+
+
 			<Table id="_IDGenTable1"
-				rows="{Products>/ProductCollection}"
+				rows="{listModel>/results}"
 				selectionMode="MultiToggle"
 				paste="onPaste"
 				ariaLabelledBy="title">
 				<extension>
 					<m:OverflowToolbar id="_IDGenOverflowToolbar" style="Clear">
-						<m:Title id="title" text="Products"/>
+						<m:Title id="title" text="{i18n>tableName}"/>
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
-					<Column id="_IDGenColumn" width="11rem">
-						<m:Label id="_IDGenLabel" text="Product Name" />
+
+					<!-- <Column id="_IDGenColumn" width="11rem">
+						<m:Label id="_IDGenLabel" text="Mandt" />
 						<template>
-							<m:Text id="_IDGenText" text="{path:'Products>/Name', formatter:'.formatter.formatSize'}" wrapping="false" />
+							<m:Text id="_IDGenText" text="{listModel>Mandt}" wrapping="false" />
 						</template>
-					</Column>
+					</Column> -->
+
 					<Column id="_IDGenColumn1" width="11rem">
-						<m:Label id="_IDGenLabel1" text="Product Id" />
+						<m:Label id="_IDGenLabel1" text="{i18n>customerNr}" />
 						<template>
-							<m:Input id="_IDGenInput" value="{Products>/ProductID}"/>
+							<m:Text id="_IDGenText1" text="{listModel>Kunnr}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn2" width="6rem" hAlign="Begin">
-						<m:Label id="_IDGenLabel2" text="Quantity" />
+
+					<Column id="_IDGenColumn2" width="11rem">
+						<m:Label id="_IDGenLabel2" text="{i18n>firstName}" />
 						<template>
-							<m:Label id="_IDGenLabel3" text="{Products>/Quantity}" />
+							<m:Text id="_IDGenText2" text="{listModel>Name1}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn3" width="9rem">
-						<m:Label id="_IDGenLabel4" text="Status" />
+
+					<Column id="_IDGenColumn3" width="11rem">
+						<m:Label id="_IDGenLabel3" text="{i18n>secondName}" />
 						<template>
-							<m:ObjectStatus id="_IDGenObjectStatus" text="{Products>/Status}" state="{
-								path: 'Available',
-								formatter: '.formatAvailableToObjectState'
-							}"/>
+							<m:Text id="_IDGenText3" text="{listModel>Name2}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn4" width="9rem">
-						<m:Label id="_IDGenLabel5" text="Price" />
+
+					<Column id="_IDGenColumn4" width="11rem">
+						<m:Label id="_IDGenLabel4" text="{i18n>taxNr1}" />
 						<template>
-							<u:Currency id="_IDGenCurrency" value="{Products>/Price}" currency="{Products>CurrencyCode}"/>
+							<m:Text id="_IDGenText4" text="{listModel>Stcd1}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn5" width="12rem">
-						<m:Label id="_IDGenLabel6" text="Supplier" />
+
+					<Column id="_IDGenColumn5" width="11rem">
+						<m:Label id="_IDGenLabel5" text="{i18n>taxNr2}" />
 						<template>
-							<m:ComboBox id="_IDGenComboBox" value="{SupplierName}" items="{Suppliers}">
-								<c:Item id="_IDGenItem" text="{Products>Name}" />
-							</m:ComboBox>
+							<m:Text id="_IDGenText5" text="{listModel>Stcd2}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn6" width="9rem">
-						<m:Label id="_IDGenLabel7" text="Image" />
+
+					<Column id="_IDGenColumn6" width="11rem">
+						<m:Label id="_IDGenLabel6" text="{i18n>email}" />
 						<template>
-							<m:Link id="_IDGenLink" text="Show Image" href="{Products>ProductPicUrl}" target="_blank"/>
+							<m:Text id="_IDGenText6" text="{listModel>SmtpAddr}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn7" width="9rem">
-						<m:Label id="_IDGenLabel8" text="Details" />
+
+					<Column id="_IDGenColumn7" width="11rem">
+						<m:Label id="_IDGenLabel7" text="{i18n>address}" />
 						<template>
-							<m:Button id="_IDGenButton" text="Show Details" press="handleDetailsPress"/>
+							<m:Text id="_IDGenText7" text="{listModel>Street}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn8" width="7rem">
-						<m:Label id="_IDGenLabel9" text="Heavy Weight" />
+
+					<Column id="_IDGenColumn8" width="11rem">
+						<m:Label id="_IDGenLabel8" text="{i18n>city}" />
 						<template>
-							<m:CheckBox id="_IDGenCheckBox" selected="{
-								path: 'Heavy',
-								type: 'sap.ui.model.type.String'
-							}"/>
+							<m:Text id="_IDGenText8" text="{listModel>City1}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn9" width="12rem">
-						<m:Label id="_IDGenLabel10" text="Main Category" />
+
+					<Column id="_IDGenColumn9" width="11rem">
+						<m:Label id="_IDGenLabel9" text="{i18n>telNr}" />
 						<template>
-							<m:Select id="_IDGenSelect" selectedKey="{Category}" items="{Categories}">
-								<c:Item id="_IDGenItem1" text="{Products>/Name}" key="{Name}"/>
-							</m:Select>
+							<m:Text id="_IDGenText9" text="{listModel>TelNumber}" wrapping="false" />
 						</template>
 					</Column>
-					
-					<Column id="_IDGenColumn11" width="6rem" hAlign="Center">
-						<m:Label id="_IDGenLabel12" text="Status" />
+
+					<Column id="_IDGenColumn10" width="11rem">
+						<m:Label id="_IDGenLabel10" text="{i18n>indicator}" />
 						<template>
-							<c:Icon id="_IDGenIcon" src="{
-								path: 'Available',
-								formatter: '.formatAvailableToIcon'
-							}"/>
+							<m:Text id="_IDGenText10" text="{listModel>Stkzn}" wrapping="false" />
 						</template>
 					</Column>
-					<Column id="_IDGenColumn12" width="11rem" hAlign="Center">
-						<m:Label id="_IDGenLabel13" text="Delivery Date" />
-						<template>
-							<m:DatePicker id="_IDGenDatePicker" value="{
-								path: 'DeliveryDate',
-								type: 'sap.ui.model.type.Date',
-								formatOptions: {source: {pattern: 'timestamp'}}
-							}"/>
-						</template>
-					</Column>
+
 				</columns>
 			</Table>
 		</m:content>

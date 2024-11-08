@@ -3,7 +3,7 @@
   "sap.app": {
     "id": "trial4",
     "type": "application",
-    "i18n": "i18n/i18n.properties",
+    "i18n": "trial4/webapp/i18n/i18n_al.properties",
     "applicationVersion": {
       "version": "0.0.1"
     },
@@ -73,7 +73,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "trial4.i18n.i18n"
+          "bundleName": "trial4.i18n.i18n_al"
         }
       },
       "": {
