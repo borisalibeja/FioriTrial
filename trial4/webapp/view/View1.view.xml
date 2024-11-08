@@ -22,25 +22,25 @@
 					<Column id="_IDGenColumn" width="11rem">
 						<m:Label id="_IDGenLabel" text="Product Name" />
 						<template>
-							<m:Text id="_IDGenText" text="{Products>Name}" wrapping="false" />
+							<m:Text id="_IDGenText" text="{path:'Products>/Name', formatter:'.formatter.formatSize'}" wrapping="false" />
 						</template>
 					</Column>
 					<Column id="_IDGenColumn1" width="11rem">
 						<m:Label id="_IDGenLabel1" text="Product Id" />
 						<template>
-							<m:Input id="_IDGenInput" value="{Products>ProductID}"/>
+							<m:Input id="_IDGenInput" value="{Products>/ProductID}"/>
 						</template>
 					</Column>
 					<Column id="_IDGenColumn2" width="6rem" hAlign="Begin">
 						<m:Label id="_IDGenLabel2" text="Quantity" />
 						<template>
-							<m:Label id="_IDGenLabel3" text="{Products>Quantity}" />
+							<m:Label id="_IDGenLabel3" text="{Products>/Quantity}" />
 						</template>
 					</Column>
 					<Column id="_IDGenColumn3" width="9rem">
 						<m:Label id="_IDGenLabel4" text="Status" />
 						<template>
-							<m:ObjectStatus id="_IDGenObjectStatus" text="{Products>Status}" state="{
+							<m:ObjectStatus id="_IDGenObjectStatus" text="{Products>/Status}" state="{
 								path: 'Available',
 								formatter: '.formatAvailableToObjectState'
 							}"/>
@@ -49,13 +49,13 @@
 					<Column id="_IDGenColumn4" width="9rem">
 						<m:Label id="_IDGenLabel5" text="Price" />
 						<template>
-							<u:Currency id="_IDGenCurrency" value="{Products>Price}" currency="{Products>CurrencyCode}"/>
+							<u:Currency id="_IDGenCurrency" value="{Products>/Price}" currency="{Products>CurrencyCode}"/>
 						</template>
 					</Column>
 					<Column id="_IDGenColumn5" width="12rem">
 						<m:Label id="_IDGenLabel6" text="Supplier" />
 						<template>
-							<m:ComboBox id="_IDGenComboBox" value="{SupplierName}" items="{Products>/Suppliers}">
+							<m:ComboBox id="_IDGenComboBox" value="{SupplierName}" items="{Suppliers}">
 								<c:Item id="_IDGenItem" text="{Products>Name}" />
 							</m:ComboBox>
 						</template>
@@ -84,8 +84,8 @@
 					<Column id="_IDGenColumn9" width="12rem">
 						<m:Label id="_IDGenLabel10" text="Main Category" />
 						<template>
-							<m:Select id="_IDGenSelect" selectedKey="{Category}" items="{Products>/Categories}">
-								<c:Item id="_IDGenItem1" text="{Products>Name}" key="{Name}"/>
+							<m:Select id="_IDGenSelect" selectedKey="{Category}" items="{Categories}">
+								<c:Item id="_IDGenItem1" text="{Products>/Name}" key="{Name}"/>
 							</m:Select>
 						</template>
 					</Column>
