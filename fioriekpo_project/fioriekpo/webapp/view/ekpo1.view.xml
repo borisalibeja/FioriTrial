@@ -6,15 +6,13 @@
 	xmlns:c="sap.ui.core"
 	xmlns:m="sap.m" >
 
-    <m:Page id="page" title="{i18n>title}">
+    <m:Page id="ekpo1" title="{i18n>title}">
         <m:content>
 
-			
 
 			<Table id="_IDGenTable1"
 				rows="{listModel>/results}"
 				selectionMode="MultiToggle"
-				paste="onPaste"
 				ariaLabelledBy="title">
 				<extension>
 					<m:OverflowToolbar id="_IDGenOverflowToolbar" style="Clear">

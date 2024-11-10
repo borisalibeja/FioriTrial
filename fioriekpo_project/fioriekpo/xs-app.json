@@ -6,7 +6,7 @@
       "source": "^/odata/(.*)$",
       "target": "$1",
       "authenticationType": "xsuaa",
-      "destination": "fioriekpo",
+      "destination": "fioriekpo_CLONING",
       "csrfProtection": false
     },
     {

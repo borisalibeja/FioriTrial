@@ -28,7 +28,7 @@ function (Controller, JSONModel, MessageBox) {
 
                 // AJAX request to load data
                 $.ajax({
-                    url: appModulePath + "/odata/sap/ZBA_FIORI_EKPO_SERVICE_SRV/FioriEkpoSet",
+                    url: appModulePath + "/odata/sap/opu/odata/sap/ZBA_FIORI_EKPO_SERVICE_SRV/FioriEkpoSet",
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
