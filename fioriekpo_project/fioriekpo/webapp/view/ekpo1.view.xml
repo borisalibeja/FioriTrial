@@ -1,0 +1,115 @@
+<mvc:View controllerName="fioriekpo.controller.ekpo1"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m" >
+
+    <m:Page id="page" title="{i18n>title}">
+        <m:content>
+
+			
+
+			<Table id="_IDGenTable1"
+				rows="{listModel>/results}"
+				selectionMode="MultiToggle"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar id="_IDGenOverflowToolbar" style="Clear">
+						<m:Title id="title" text="{i18n>tableName}"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+
+					<Column id="_IDGenColumn1" width="11rem">
+						<m:Label id="_IDGenLabel1" text="{i18n>client}" />
+						<template>
+							<m:Text id="_IDGenText1" text="{listModel>Mandt}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn2" width="11rem">
+						<m:Label id="_IDGenLabel2" text="{i18n>purchaseOrder}" />
+						<template>
+							<m:Text id="_IDGenText2" text="{listModel>Ebeln}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn3" width="11rem">
+						<m:Label id="_IDGenLabel3" text="{i18n>item}" />
+						<template>
+							<m:Text id="_IDGenText3" text="{listModel>Ebelp}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn4" width="11rem">
+						<m:Label id="_IDGenLabel4" text="{i18n>material}" />
+						<template>
+							<m:Text id="_IDGenText4" text="{listModel>Matnr}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn5" width="11rem">
+						<m:Label id="_IDGenLabel5" text="{i18n>companyCode}" />
+						<template>
+							<m:Text id="_IDGenText5" text="{listModel>Bukrs}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn6" width="11rem">
+						<m:Label id="_IDGenLabel6" text="{i18n>plant}" />
+						<template>
+							<m:Text id="_IDGenText6" text="{listModel>Werks}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn7" width="11rem">
+						<m:Label id="_IDGenLabel7" text="{i18n>orderUnit}" />
+						<template>
+							<m:Text id="_IDGenText7" text="{listModel>Peinh}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn8" width="11rem">
+						<m:Label id="_IDGenLabel8" text="{i18n>netPrice}" />
+						<template>
+							<m:Text id="_IDGenText8" text="{listModel>Netwr}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn9" width="11rem">
+						<m:Label id="_IDGenLabel9" text="{i18n>taxCode}" />
+						<template>
+							<m:Text id="_IDGenText9" text="{listModel>Mwskz}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn10" width="11rem">
+						<m:Label id="_IDGenLabel10" text="{i18n>shippingIndicator}" />
+						<template>
+							<m:Text id="_IDGenText10" text="{listModel>Schpr}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn11" width="11rem">
+						<m:Label id="_IDGenLabel11" text="{i18n>customerNumber}" />
+						<template>
+							<m:Text id="_IDGenText11" text="{listModel>Kunnr}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn12" width="11rem">
+						<m:Label id="_IDGenLabel12" text="{i18n>addressNumber}" />
+						<template>
+							<m:Text id="_IDGenText12" text="{listModel>Adrnr}" wrapping="false" />
+						</template>
+					</Column>
+
+				</columns>
+			</Table>
+		</m:content>
+    </m:Page>
+
+</mvc:View>
