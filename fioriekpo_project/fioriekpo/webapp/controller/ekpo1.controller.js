@@ -7,7 +7,7 @@ sap.ui.define([
     "sap/ui/model/FilterOperator"
     
 ],
-function (Controller, JSONModel, MessageBox) {
+function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
     "use strict";
  
     return Controller.extend("fioriekpo.controller.ekpo1", {
@@ -42,6 +42,21 @@ function (Controller, JSONModel, MessageBox) {
                     }
                 });
             });
+        },
+        onPlantSearch: function (oEvent) {
+            // Get the search value
+            let sQuery = oEvent.getParameter("newValue");
+            let oTable = this.byId("_IDGenTable1");
+            let oBinding = oTable.getBinding("rows");
+
+            // Create filter for plant (Werks)
+            let aFilters = [];
+            if (sQuery) {
+                aFilters.push(new Filter("Werks", FilterOperator.Contains, sQuery));
+            }
+
+            // Apply the filter to the table binding
+            oBinding.filter(aFilters);
         }
     });
 });

@@ -9,6 +9,17 @@
     <m:Page id="ekpo1" title="{i18n>title}">
         <m:content>
 
+             <!-- Toolbar with Plant Search -->
+            <m:Toolbar id="searchToolbar">
+                <m:Label id="_IDGenLabel" text="{i18n>plant}" />
+                <m:SearchField 
+                    id="plantSearchField" 
+                    placeholder="{i18n>fabricSearch}" 
+                    width="200px"
+                    liveChange="onPlantSearch" />
+            </m:Toolbar>
+
+
 
 			<Table id="_IDGenTable1"
 				rows="{listModel>/results}"
@@ -21,12 +32,12 @@
 				</extension>
 				<columns>
 
-					<Column id="_IDGenColumn1" width="11rem">
+					<!-- <Column id="_IDGenColumn1" width="11rem">
 						<m:Label id="_IDGenLabel1" text="{i18n>client}" />
 						<template>
 							<m:Text id="_IDGenText1" text="{listModel>Mandt}" wrapping="false" />
 						</template>
-					</Column>
+					</Column> -->
 
 					<Column id="_IDGenColumn2" width="11rem">
 						<m:Label id="_IDGenLabel2" text="{i18n>purchaseOrder}" />
@@ -84,14 +95,14 @@
 						</template>
 					</Column>
 
-					<Column id="_IDGenColumn10" width="11rem">
+					<!-- <Column id="_IDGenColumn10" width="11rem">
 						<m:Label id="_IDGenLabel10" text="{i18n>shippingIndicator}" />
 						<template>
 							<m:Text id="_IDGenText10" text="{listModel>Schpr}" wrapping="false" />
 						</template>
-					</Column>
+					</Column> -->
 
-					<Column id="_IDGenColumn11" width="11rem">
+					<!-- <Column id="_IDGenColumn11" width="11rem">
 						<m:Label id="_IDGenLabel11" text="{i18n>customerNumber}" />
 						<template>
 							<m:Text id="_IDGenText11" text="{listModel>Kunnr}" wrapping="false" />
@@ -103,7 +114,7 @@
 						<template>
 							<m:Text id="_IDGenText12" text="{listModel>Adrnr}" wrapping="false" />
 						</template>
-					</Column>
+					</Column> -->
 
 				</columns>
 			</Table>
