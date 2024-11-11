@@ -47,7 +47,7 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             });
         },
 
-        onPlantSearch: function (oEvent) {
+        onSearch: function (oEvent) {
             // Get the search value
             let sQuery = oEvent.getParameter("newValue");
             let oTable = this.byId("_IDGenTable1");
@@ -82,7 +82,15 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
         
             // Apply the filters to the table binding
             oBinding.filter(aFilters);
+        },
+
+        onLanguageSelect: function (oEvent) {
+            // Get the language code from the button's custom data
+            let sLanguageCode = oEvent.getSource().getCustomData()[0].getValue();
+            this.changeLanguage(sLanguageCode);
         }
+        
+        
         
 
     });

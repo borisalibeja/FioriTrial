@@ -4,6 +4,7 @@
     xmlns="sap.ui.table"
 	xmlns:u="sap.ui.unified"
 	xmlns:c="sap.ui.core"
+	xmlns:core="sap.ui.core"
 	xmlns:m="sap.m" >
 
     <m:Page id="ekpo2" title="{i18n>title}">
@@ -16,7 +17,7 @@
                     id="_IDGenSearchField" 
                     placeholder="{i18n>fabricSearch}" 
                     width="200px"
-                    liveChange="onPlantSearch" />
+                    liveChange="onSearch" />
             </m:Toolbar>
 
 
@@ -119,6 +120,7 @@
 				</columns>
 			</Table>
 		</m:content>
+		<!-- switching view button -->
         <m:Button id="_IDGenButton2" text="Go to the first view"
             press="onPress"
             ariaDescribedBy="defaultButtonDescription genericButtonDescription">
@@ -126,6 +128,26 @@
                 <m:FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
             </m:layoutData>
         </m:Button>
+
+		<!-- language selection -->
+		<m:Button id="_IDGenButton9" text="English" press=".onLanguageSelect">
+			<m:customData>
+				<core:CustomData id="_IDGenCustomData8" key="langCode" value="en" />
+			</m:customData>
+		</m:Button>
+
+		<m:Button id="_IDGenButton10" text="German" press=".onLanguageSelect">
+			<m:customData>
+				<core:CustomData id="_IDGenCustomData7" key="langCode" value="de" />
+			</m:customData>
+		</m:Button>
+
+		<m:Button id="_IDGenButton6" text="French" press=".onLanguageSelect">
+			<m:customData>
+				<core:CustomData id="_IDGenCustomData6" key="langCode" value="fr" />
+			</m:customData>
+		</m:Button>
+
     </m:Page>
 
 </mvc:View>
