@@ -52,16 +52,37 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             let sQuery = oEvent.getParameter("newValue");
             let oTable = this.byId("_IDGenTable1");
             let oBinding = oTable.getBinding("rows");
-
-            // Create filter for plant (Werks)
+        
+            // Create filters for each column in the table
             let aFilters = [];
             if (sQuery) {
-                aFilters.push(new Filter("Werks", FilterOperator.Contains, sQuery));
+                // Define an array of field names to include in the search
+                let aFields = [
+                    "Ebeln",  // Purchase Order
+                    "Ebelp",  // Item
+                    "Matnr",  // Material
+                    "Bukrs",  // Company Code
+                    "Werks",  // Plant
+                    "Peinh",  // Order Unit
+                    "Netwr",  // Net Price
+                    "Mwskz"   // Tax Code
+                ];
+        
+                // Create a filter for each field, checking if it contains the search query
+                aFields.forEach((field) => {
+                    aFilters.push(new sap.ui.model.Filter(field, sap.ui.model.FilterOperator.Contains, sQuery));
+                });
+        
+                // Combine the individual field filters with OR logic
+                aFilters = new sap.ui.model.Filter({
+                    filters: aFilters,
+                    and: false // false indicates "OR" between the filters
+                });
             }
-
-            // Apply the filter to the table binding
+        
+            // Apply the filters to the table binding
             oBinding.filter(aFilters);
-        },
+        }
         
 
     });
