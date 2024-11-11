@@ -16,9 +16,7 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             this.calltoDB();        // Existing data load function
         },
 
-        onPress: function()  {
-            this.getOwnerComponent().getRouter().navTo("Routeekpo1");
-        },
+        
  
         calltoDB: function () {
             let that = this;
@@ -83,11 +81,28 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             oBinding.filter(aFilters);
         },
 
-        onLanguageSelect: function (oEvent) {
+        onLanguageSelect: function (oEvent1) {
             // Get the language code from the button's custom data
-            let sLanguageCode = oEvent.getSource().getCustomData()[0].getValue();
+            let sLanguageCode = oEvent1.getSource().getCustomData()[0].getValue();
             this.changeLanguage(sLanguageCode);
-        }
+        },
+        
+        changeLanguage: function (sLanguageCode) {
+            // Create a new resource model with the selected language
+            let oResourceModel = new sap.ui.model.resource.ResourceModel({
+                bundleName: "fioriekpo.i18n.i18n",
+                bundleLocale: sLanguageCode
+            });
+        
+            // Set the model on the view or globally on the core
+            this.getView().setModel(oResourceModel, "i18n");
+            sap.ui.getCore().setModel(oResourceModel, "i18n");
+
+            this.getView().rerender();
+        },
+        onPress: function()  {
+            this.getOwnerComponent().getRouter().navTo("Routeekpo1");
+        },
     });
 });
  

@@ -8,6 +8,26 @@
 	xmlns:m="sap.m" >
 
     <m:Page id="ekpo2" title="{i18n>title}">
+
+		<!-- language selection Button -->
+			<m:Button id="_IDGenButton7" text="English" press="onLanguageSelect">
+				<m:customData>
+					<core:CustomData id="" key="langCode" value="en" />
+				</m:customData>
+			</m:Button>
+
+			<m:Button id="_IDGenButton8" text="Italian" press="onLanguageSelect">
+				<m:customData>
+					<core:CustomData id="" key="langCode" value="it" />
+				</m:customData>
+			</m:Button>
+
+			<m:Button id="_IDGenButton11" text="Albanian" press="onLanguageSelect">
+				<m:customData>
+					<core:CustomData id="" key="langCode" value="al" />
+				</m:customData>
+			</m:Button>
+
         <m:content>
 
              <!-- Toolbar with Plant Search -->
@@ -20,12 +40,14 @@
                     liveChange="onSearch" />
             </m:Toolbar>
 
+			
 
 
+			<!-- Table -->
 			<Table id="_IDGenTable2"
 				rows="{listModel>/results}"
 				selectionMode="MultiToggle"
-				ariaLabelledBy="title">
+				ariaLabelledBy="title2">
 				<extension>
 					<m:OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear">
 						<m:Title id="_IDGenTitle" text="{i18n>tableName}"/>
@@ -120,33 +142,16 @@
 				</columns>
 			</Table>
 		</m:content>
+
 		<!-- switching view button -->
         <m:Button id="_IDGenButton2" text="Go to the first view"
             press="onPress"
-            ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+            >
             <m:layoutData>
                 <m:FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
             </m:layoutData>
         </m:Button>
 
-		<!-- language selection -->
-		<m:Button id="_IDGenButton9" text="English" press=".onLanguageSelect">
-			<m:customData>
-				<core:CustomData id="_IDGenCustomData8" key="langCode" value="en" />
-			</m:customData>
-		</m:Button>
-
-		<m:Button id="_IDGenButton10" text="German" press=".onLanguageSelect">
-			<m:customData>
-				<core:CustomData id="_IDGenCustomData7" key="langCode" value="de" />
-			</m:customData>
-		</m:Button>
-
-		<m:Button id="_IDGenButton6" text="French" press=".onLanguageSelect">
-			<m:customData>
-				<core:CustomData id="_IDGenCustomData6" key="langCode" value="fr" />
-			</m:customData>
-		</m:Button>
 
     </m:Page>
 
