@@ -1,105 +1,105 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Start fioriekpo",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceFolder}/fioriekpo",
-            "runtimeExecutable": "npx",
-            "windows": {
-                "runtimeExecutable": "npx.cmd"
-            },
-            "runtimeArgs": [
-                "fiori",
-                "run"
-            ],
-            "args": [
-                "--open",
-                "test/flpSandbox.html#fioriekpo-display"
-            ],
-            "console": "internalConsole",
-            "internalConsoleOptions": "openOnSessionStart",
-            "outputCapture": "std",
-            "env": {
-                "DEBUG": "--inspect",
-                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/fioriekpo_project/fioriekpo\"}"
-            }
-        },
-        {
-            "name": "Start fioriekpo Mock",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceFolder}/fioriekpo",
-            "runtimeExecutable": "npx",
-            "windows": {
-                "runtimeExecutable": "npx.cmd"
-            },
-            "runtimeArgs": [
-                "fiori",
-                "run"
-            ],
-            "args": [
-                "--config",
-                "./ui5-mock.yaml",
-                "--open",
-                "test/flpSandbox.html#fioriekpo-display"
-            ],
-            "console": "internalConsole",
-            "internalConsoleOptions": "openOnSessionStart",
-            "outputCapture": "std",
-            "env": {
-                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/fioriekpo_project/fioriekpo\"}"
-            }
-        },
-        {
-            "name": "Start fioriekpo Local",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceFolder}/fioriekpo",
-            "runtimeExecutable": "npx",
-            "windows": {
-                "runtimeExecutable": "npx.cmd"
-            },
-            "runtimeArgs": [
-                "fiori",
-                "run"
-            ],
-            "args": [
-                "--config",
-                "./ui5-local.yaml",
-                "--open",
-                "test/flpSandbox.html#fioriekpo-display"
-            ],
-            "console": "internalConsole",
-            "internalConsoleOptions": "openOnSessionStart",
-            "outputCapture": "std",
-            "env": {
-                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/fioriekpo_project/fioriekpo\"}"
-            }
-        },
-        {
-            "name": "Run fioriekpo",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceFolder}/fioriekpo/fioriekpo-approuter/node_modules/@sap/html5-repo-mock/index.js",
-            "args": [
-              "--standalone",
-              "/fioriekpo/index.html",
-              "--ui5",
-              "{\"version\":\".\"}"
-            ],
-            "cwd": "${workspaceFolder}/fioriekpo",
-            "env": {
-              "PORT": "6004",
-              "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
-              "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/fioriekpo\"}"
-            },
-            "envFile": "${workspaceFolder}/.vscode/.env",
-            "preLaunchTask": "Build fioriekpo"
-          }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start fioriekpo",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/fioriekpo",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html#fioriekpo-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "env": {
+        "DEBUG": "--inspect",
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/fioriekpo_project/fioriekpo\"}"
+      }
+    },
+    {
+      "name": "Start fioriekpo Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/fioriekpo",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html#fioriekpo-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/fioriekpo_project/fioriekpo\"}"
+      }
+    },
+    {
+      "name": "Start fioriekpo Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/fioriekpo",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html#fioriekpo-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/fioriekpo_project/fioriekpo\"}"
+      }
+    },
+    {
+      "name": "Run fioriekpo",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/fioriekpo/fioriekpo-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/fioriekpo/index.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/fioriekpo",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/fioriekpo\"}"
+      },
+      "envFile": "${workspaceFolder}/.vscode/.env",
+      "preLaunchTask": "Build fioriekpo"
+    }
+  ]
 }

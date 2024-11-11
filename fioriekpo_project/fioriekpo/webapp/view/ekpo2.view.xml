@@ -1,4 +1,4 @@
-<mvc:View controllerName="fioriekpo.controller.ekpo1"
+<mvc:View controllerName="fioriekpo.controller.ekpo2"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
     xmlns="sap.ui.table"
@@ -6,14 +6,14 @@
 	xmlns:c="sap.ui.core"
 	xmlns:m="sap.m" >
 
-    <m:Page id="ekpo1" title="{i18n>title}">
+    <m:Page id="ekpo2" title="{i18n>title}">
         <m:content>
 
              <!-- Toolbar with Plant Search -->
-            <m:Toolbar id="searchToolbar">
-                <m:Label id="_IDGenLabel" text="{i18n>plant}" />
+            <m:Toolbar id="_IDGenToolbar1">
+                <m:Label id="_IDGenLabel14" text="{i18n>plant}" />
                 <m:SearchField 
-                    id="plantSearchField" 
+                    id="_IDGenSearchField" 
                     placeholder="{i18n>fabricSearch}" 
                     width="200px"
                     liveChange="onPlantSearch" />
@@ -21,13 +21,13 @@
 
 
 
-			<Table id="_IDGenTable1"
+			<Table id="_IDGenTable2"
 				rows="{listModel>/results}"
 				selectionMode="MultiToggle"
 				ariaLabelledBy="title">
 				<extension>
-					<m:OverflowToolbar id="_IDGenOverflowToolbar" style="Clear">
-						<m:Title id="title" text="{i18n>tableName}"/>
+					<m:OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear">
+						<m:Title id="_IDGenTitle" text="{i18n>tableName}"/>
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
@@ -39,42 +39,42 @@
 						</template>
 					</Column> -->
 
-					<Column id="_IDGenColumn2" width="11rem">
-						<m:Label id="_IDGenLabel2" text="{i18n>purchaseOrder}" />
+					<Column id="_IDGenColumn" width="11rem">
+						<m:Label id="_IDGenLabel1" text="{i18n>purchaseOrder}" />
 						<template>
-							<m:Text id="_IDGenText2" text="{listModel>Ebeln}" wrapping="false" />
+							<m:Text id="_IDGenText" text="{listModel>Ebeln}" wrapping="false" />
 						</template>
 					</Column>
 
-					<Column id="_IDGenColumn3" width="11rem">
-						<m:Label id="_IDGenLabel3" text="{i18n>item}" />
+					<Column id="_IDGenColumn1" width="11rem">
+						<m:Label id="_IDGenLabel10" text="{i18n>item}" />
 						<template>
-							<m:Text id="_IDGenText3" text="{listModel>Ebelp}" wrapping="false" />
+							<m:Text id="_IDGenText1" text="{listModel>Ebelp}" wrapping="false" />
 						</template>
 					</Column>
 
-					<Column id="_IDGenColumn4" width="11rem">
-						<m:Label id="_IDGenLabel4" text="{i18n>material}" />
+					<Column id="_IDGenColumn13" width="11rem">
+						<m:Label id="_IDGenLabel13" text="{i18n>material}" />
 						<template>
-							<m:Text id="_IDGenText4" text="{listModel>Matnr}" wrapping="false" />
+							<m:Text id="_IDGenText12" text="{listModel>Matnr}" wrapping="false" />
 						</template>
 					</Column>
 
-					<Column id="_IDGenColumn5" width="11rem">
-						<m:Label id="_IDGenLabel5" text="{i18n>companyCode}" />
+					<Column id="_IDGenColumn10" width="11rem">
+						<m:Label id="_IDGenLabel11" text="{i18n>companyCode}" />
 						<template>
-							<m:Text id="_IDGenText5" text="{listModel>Bukrs}" wrapping="false" />
+							<m:Text id="_IDGenText10" text="{listModel>Bukrs}" wrapping="false" />
 						</template>
 					</Column>
 
-					<Column id="_IDGenColumn6" width="11rem">
-						<m:Label id="_IDGenLabel6" text="{i18n>plant}" />
+					<Column id="_IDGenColumn11" width="11rem">
+						<m:Label id="_IDGenLabel12" text="{i18n>plant}" />
 						<template>
-							<m:Text id="_IDGenText6" text="{listModel>Werks}" wrapping="false" />
+							<m:Text id="_IDGenText11" text="{listModel>Werks}" wrapping="false" />
 						</template>
 					</Column>
 
-					<Column id="_IDGenColumn7" width="11rem">
+					<!-- <Column id="_IDGenColumn7" width="11rem">
 						<m:Label id="_IDGenLabel7" text="{i18n>orderUnit}" />
 						<template>
 							<m:Text id="_IDGenText7" text="{listModel>Peinh}" wrapping="false" />
@@ -93,7 +93,7 @@
 						<template>
 							<m:Text id="_IDGenText9" text="{listModel>Mwskz}" wrapping="false" />
 						</template>
-					</Column>
+					</Column> -->
 
 					<!-- <Column id="_IDGenColumn10" width="11rem">
 						<m:Label id="_IDGenLabel10" text="{i18n>shippingIndicator}" />
@@ -118,13 +118,12 @@
 
 				</columns>
 			</Table>
-
 		</m:content>
-		<m:Button id="_IDGenButton1" text="Go to the second view"
+        <m:Button id="_IDGenButton2" text="Go to the first view"
             press="onPress"
             ariaDescribedBy="defaultButtonDescription genericButtonDescription">
             <m:layoutData>
-                <m:FlexItemData id="_IDGenFlexItemData" growFactor="1" />
+                <m:FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
             </m:layoutData>
         </m:Button>
     </m:Page>

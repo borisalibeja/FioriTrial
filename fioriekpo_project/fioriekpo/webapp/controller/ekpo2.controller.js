@@ -10,16 +10,15 @@ sap.ui.define([
 function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
     "use strict";
  
-    return Controller.extend("fioriekpo.controller.ekpo1", {
+    return Controller.extend("fioriekpo.controller.ekpo2", {
         
         onInit: function () {
             this.calltoDB();        // Existing data load function
         },
 
         onPress: function()  {
-            this.getOwnerComponent().getRouter().navTo("Routeekpo2");
+            this.getOwnerComponent().getRouter().navTo("Routeekpo1");
         },
-        
  
         calltoDB: function () {
             let that = this;
@@ -46,7 +45,7 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
                 });
             });
         },
-
+        
         onPlantSearch: function (oEvent) {
             // Get the search value
             let sQuery = oEvent.getParameter("newValue");
@@ -63,7 +62,6 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             oBinding.filter(aFilters);
         },
         
-
     });
 });
  

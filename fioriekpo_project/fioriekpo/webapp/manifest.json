@@ -73,7 +73,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "fioriekpo.i18n.i18n_en"
+          "bundleName": "fioriekpo.i18n.i18n_al"
         }
       },
       "": {
@@ -106,6 +106,13 @@
           "target": [
             "Targetekpo1"
           ]
+        },
+        {
+          "name": "Routeekpo2",
+          "pattern": "view2",
+          "target": [
+            "Targetekpo2"
+          ]
         }
       ],
       "targets": {
@@ -115,6 +122,13 @@
           "clearControlAggregation": false,
           "viewId": "ekpo1",
           "viewName": "ekpo1"
+        },
+        "Targetekpo2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ekpo2",
+          "viewName": "ekpo2"
         }
       }
     },
