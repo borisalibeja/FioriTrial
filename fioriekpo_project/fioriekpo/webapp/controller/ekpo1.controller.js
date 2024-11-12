@@ -7,7 +7,7 @@ sap.ui.define([
     "sap/ui/model/FilterOperator"
     
 ],
-function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
+function (Controller, JSONModel, MessageBox) {
     "use strict";
  
     return Controller.extend("fioriekpo.controller.ekpo1", {
@@ -15,10 +15,9 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
         onInit: function () {
             this.calltoDB();        // Existing data load function
         },
-        
-
-        
-        
+        onPress: function()  {
+            this.getOwnerComponent().getRouter().navTo("Routeekpo2");
+        },
  
         calltoDB: function () {
             let that = this;
@@ -102,9 +101,7 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
 
             this.getView().rerender();
         },
-        onPress: function()  {
-            this.getOwnerComponent().getRouter().navTo("Routeekpo2");
-        },
+        
         
 
     });

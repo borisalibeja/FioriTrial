@@ -9,7 +9,11 @@
 
     <m:Page id="ekpo1" title="{i18n>title}">
 
-		<!-- Language selection Buton -->
+		
+
+        <m:content>
+
+			<!-- Language selection Buton -->
 			<m:Button id="_IDGenButton3" text="English" press="onLanguageSelect">
 				<m:customData>
 					<core:CustomData id="_IDGenCustomData1" key="langCode" value="en" />
@@ -27,8 +31,6 @@
 					<core:CustomData id="_IDGenCustomData3" key="langCode" value="al" />
 				</m:customData>
 			</m:Button>
-
-        <m:content>
 
              <!-- Toolbar with Plant Search -->
             <m:Toolbar id="searchToolbar">
@@ -142,15 +144,17 @@
 				</columns>
 			</Table>
 
+				<!-- change view button -->
+			<m:Button id="_IDGenButton1" text="Go to the second view"
+				press="onPress">
+				<m:layoutData>
+					<m:FlexItemData id="_IDGenFlexItemData" growFactor="1" />
+				</m:layoutData>
+			</m:Button>
+
 		</m:content>
 
-		<!-- change view button -->
-		<m:Button id="_IDGenButton1" text="Go to the second view"
-            press="onPress">
-            <m:layoutData>
-                <m:FlexItemData id="_IDGenFlexItemData" growFactor="1" />
-            </m:layoutData>
-        </m:Button>
+		
 
     </m:Page>
 

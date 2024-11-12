@@ -7,28 +7,29 @@
 	xmlns:core="sap.ui.core"
 	xmlns:m="sap.m" >
 
+
     <m:Page id="ekpo2" title="{i18n>title}">
 
-		<!-- language selection Button -->
+        <m:content>
+
+			<!-- language selection Button -->
 			<m:Button id="_IDGenButton7" text="English" press="onLanguageSelect">
 				<m:customData>
-					<core:CustomData id="" key="langCode" value="en" />
+					<core:CustomData id="engbutton" key="langCode" value="en" />
 				</m:customData>
 			</m:Button>
 
 			<m:Button id="_IDGenButton8" text="Italian" press="onLanguageSelect">
 				<m:customData>
-					<core:CustomData id="" key="langCode" value="it" />
+					<core:CustomData id="itbutton" key="langCode" value="it" />
 				</m:customData>
 			</m:Button>
 
 			<m:Button id="_IDGenButton11" text="Albanian" press="onLanguageSelect">
 				<m:customData>
-					<core:CustomData id="" key="langCode" value="al" />
+					<core:CustomData id="albutton" key="langCode" value="al" />
 				</m:customData>
 			</m:Button>
-
-        <m:content>
 
              <!-- Toolbar with Plant Search -->
             <m:Toolbar id="_IDGenToolbar1">
@@ -62,7 +63,7 @@
 						</template>
 					</Column> -->
 
-					<Column id="_IDGenColumn" width="11rem">
+					<Column id="_IDGenColumn0" width="11rem">
 						<m:Label id="_IDGenLabel1" text="{i18n>purchaseOrder}" />
 						<template>
 							<m:Text id="_IDGenText" text="{listModel>Ebeln}" wrapping="false" />
@@ -97,60 +98,22 @@
 						</template>
 					</Column>
 
-					<!-- <Column id="_IDGenColumn7" width="11rem">
-						<m:Label id="_IDGenLabel7" text="{i18n>orderUnit}" />
-						<template>
-							<m:Text id="_IDGenText7" text="{listModel>Peinh}" wrapping="false" />
-						</template>
-					</Column>
-
-					<Column id="_IDGenColumn8" width="11rem">
-						<m:Label id="_IDGenLabel8" text="{i18n>netPrice}" />
-						<template>
-							<m:Text id="_IDGenText8" text="{listModel>Netwr}" wrapping="false" />
-						</template>
-					</Column>
-
-					<Column id="_IDGenColumn9" width="11rem">
-						<m:Label id="_IDGenLabel9" text="{i18n>taxCode}" />
-						<template>
-							<m:Text id="_IDGenText9" text="{listModel>Mwskz}" wrapping="false" />
-						</template>
-					</Column> -->
-
-					<!-- <Column id="_IDGenColumn10" width="11rem">
-						<m:Label id="_IDGenLabel10" text="{i18n>shippingIndicator}" />
-						<template>
-							<m:Text id="_IDGenText10" text="{listModel>Schpr}" wrapping="false" />
-						</template>
-					</Column> -->
-
-					<!-- <Column id="_IDGenColumn11" width="11rem">
-						<m:Label id="_IDGenLabel11" text="{i18n>customerNumber}" />
-						<template>
-							<m:Text id="_IDGenText11" text="{listModel>Kunnr}" wrapping="false" />
-						</template>
-					</Column>
-
-					<Column id="_IDGenColumn12" width="11rem">
-						<m:Label id="_IDGenLabel12" text="{i18n>addressNumber}" />
-						<template>
-							<m:Text id="_IDGenText12" text="{listModel>Adrnr}" wrapping="false" />
-						</template>
-					</Column> -->
+					
 
 				</columns>
 			</Table>
+			
+				<!-- switching view button -->
+			<m:Button id="_IDGenButton2" text="Go to the first view"
+				press="onPress"
+				>
+				<m:layoutData>
+					<m:FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+				</m:layoutData>
+			</m:Button>
 		</m:content>
 
-		<!-- switching view button -->
-        <m:Button id="_IDGenButton2" text="Go to the first view"
-            press="onPress"
-            >
-            <m:layoutData>
-                <m:FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
-            </m:layoutData>
-        </m:Button>
+		
 
 
     </m:Page>
