@@ -1,0 +1,145 @@
+<mvc:View controllerName="trial4.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.m" >
+
+    <m:Page id="View1" title="{i18n>title}">
+        <m:content>
+
+			<!-- Language selection Buton -->
+			<m:Button id="_IDGenButtonen" text="English" press="onLanguageSelect">
+				<m:customData>
+					<core:CustomData id="_IDGenCustomDataen" key="langCode" value="en" />
+				</m:customData>
+			</m:Button>
+
+			<m:Button id="_IDGenButton4" text="Italian" press="onLanguageSelect">
+				<m:customData>
+					<core:CustomData id="_IDGenCustomData2" key="langCode" value="it" />
+				</m:customData>
+			</m:Button>
+
+			<m:Button id="_IDGenButton5" text="Albanian" press="onLanguageSelect">
+				<m:customData>
+					<core:CustomData id="_IDGenCustomData3" key="langCode" value="al" />
+				</m:customData>
+			</m:Button>
+
+			<!-- Toolbar with Plant Search -->
+            <m:Toolbar id="searchToolbar">
+                <m:Label id="_IDGenLabel" text="{i18n>plant}" />
+                <m:SearchField 
+                    id="plantSearchField" 
+                    placeholder="{i18n>fabricSearch}" 
+                    width="200px"
+                    liveChange="onSearch" />
+            </m:Toolbar>
+
+			<Table id="_IDGenTable1"
+				rows="{listModel>/results}"
+				selectionMode="MultiToggle"
+				paste="onPaste"
+				ariaLabelledBy="title">
+
+				<extension>
+					<m:OverflowToolbar id="_IDGenOverflowToolbar" style="Clear">
+						<m:Title id="title" text="{i18n>tableName}"/>
+					</m:OverflowToolbar>
+				</extension>
+				
+				<columns>
+
+					<Column id="_IDGenColumn1" width="11rem">
+						<m:Label id="_IDGenLabel1" text="{i18n>customerNr}" />
+						<template>
+							<m:Text id="_IDGenText1" text="{listModel>Kunnr}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn2" width="11rem">
+						<m:Label id="_IDGenLabel2" text="{i18n>firstName}" />
+						<template>
+							<m:Text id="_IDGenText2" text="{listModel>Name1}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn3" width="11rem">
+						<m:Label id="_IDGenLabel3" text="{i18n>secondName}" />
+						<template>
+							<m:Text id="_IDGenText3" text="{listModel>Name2}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn4" width="11rem">
+						<m:Label id="_IDGenLabel4" text="{i18n>taxNr1}" />
+						<template>
+							<m:Text id="_IDGenText4" text="{listModel>Stcd1}" wrapping="false" />
+						</template>
+					</Column>
+
+					<!-- <Column id="_IDGenColumn5" width="11rem">
+						<m:Label id="_IDGenLabel5" text="{i18n>taxNr2}" />
+						<template>
+							<m:Text id="_IDGenText5" text="{listModel>Stcd2}" wrapping="false" />
+						</template>
+					</Column> -->
+
+					<Column id="_IDGenColumn6" width="11rem">
+						<m:Label id="_IDGenLabel6" text="{i18n>email}" />
+						<template>
+							<m:Text id="_IDGenText6" text="{listModel>SmtpAddr}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn7" width="11rem">
+						<m:Label id="_IDGenLabel7" text="{i18n>address}" />
+						<template>
+							<m:Text id="_IDGenText7" text="{listModel>Street}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn8" width="11rem">
+						<m:Label id="_IDGenLabel8" text="{i18n>city}" />
+						<template>
+							<m:Text id="_IDGenText8" text="{listModel>City1}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column id="_IDGenColumn9" width="11rem">
+						<m:Label id="_IDGenLabel9" text="{i18n>telNr}" />
+						<template>
+							<m:Text id="_IDGenText9" text="{listModel>TelNumber}" wrapping="false" />
+						</template>
+					</Column>
+
+					<!-- <Column id="_IDGenColumn10" width="11rem">
+						<m:Label id="_IDGenLabel10" text="{i18n>indicator}" />
+						<template>
+							<m:Text id="_IDGenText10" text="{listModel>Stkzn}" wrapping="false" />
+						</template>
+					</Column> -->
+
+				</columns>
+                <Column id="_IDGendetails" width="9rem">
+					<m:Label id="_IDGendetailslabel" text="Details" />
+					<template>
+						<m:Button id="_IDGenButton" text="Show Details" press="handleDetailsPress"/>
+					</template>
+				</Column>
+			</Table>
+
+            	<!-- change view button -->
+			<m:Button id="_IDGenButton1" text="Go to the second view"
+				press="onPress">
+				<m:layoutData>
+					<m:FlexItemData id="_IDGenFlexItemData" growFactor="1" />
+				</m:layoutData>
+			</m:Button>
+		</m:content>
+    </m:Page>
+
+</mvc:View>
