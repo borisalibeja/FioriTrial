@@ -10,14 +10,16 @@ sap.ui.define([
 function (Controller, JSONModel, MessageBox) {
     "use strict";
  
-    return Controller.extend("fioriekpo.controller.ekpo1", {
+    return Controller.extend("fioriekpo.controller.details", {
         
         onInit: function () {
             this.calltoDB();        // Existing data load function
         },
+
         onPress: function()  {
-            this.getOwnerComponent().getRouter().navTo("Routeekpo2");
+            this.getOwnerComponent().getRouter().navTo("Routeekpo1");
         },
+        
  
         calltoDB: function () {
             let that = this;
@@ -44,11 +46,11 @@ function (Controller, JSONModel, MessageBox) {
                 });
             });
         },
-
+        
         onSearch: function (oEvent) {
             // Get the search value
             let sQuery = oEvent.getParameter("newValue");
-            let oTable = this.byId("_IDGenTable1");
+            let oTable = this.byId("_IDGenTable2");
             let oBinding = oTable.getBinding("rows");
         
             // Create filters for each column in the table
@@ -102,22 +104,6 @@ function (Controller, JSONModel, MessageBox) {
             this.getView().rerender();
         },
         
-        handleDetailsPress: function (oEvent) {
-            var buttonPressed= oEvent.getSource()
-            var context = buttonPressed.getBindingContext('listModel')
-            var ebelnSelected = context.getProperty('Ebeln')
-            console.log(ebelnSelected);
-            var ebelpSelected = context.getProperty('Ebelp')
-            console.log(ebelpSelected);
-            this.getOwnerComponent().getRouter().navTo('RouteDetails',
-                {
-                    Ebeln: ebelnSelected,
-                    Ebelp: ebelpSelected
-                }
-            )
-        }
-        
-
     });
 });
  
