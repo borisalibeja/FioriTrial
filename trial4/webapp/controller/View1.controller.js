@@ -188,13 +188,11 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
             let context = buttonPressed.getBindingContext('listModel');
             let kunnrSelected = context.getProperty('Kunnr');
         
-            // Pad Kunnr to 10 digits with leading zeros
-            let paddedKunnr = kunnrSelected.padStart(10, '0');
-            console.log("Selected Kunnr (padded):", paddedKunnr);
+
         
             // Navigate to the details view with the padded Kunnr
             this.getOwnerComponent().getRouter().navTo('RouteDetails', {
-                Kunnr: paddedKunnr
+                Kunnr: kunnrSelected
             });
         },
         onAddRecord: function () {
@@ -202,9 +200,31 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
             this.getOwnerComponent().getRouter().navTo("RouteAddRecord");
         },
         
-        onEditRecord: function (oEvent) {
-            // Here you can pass the selected record details if necessary
-            this.getOwnerComponent().getRouter().navTo("RouteEditRecord");
+        onEditRecord: function () {
+            let oTable = this.byId("_IDGenTable1"); // Get reference to the table
+            let aSelectedIndices = oTable.getSelectedIndices(); // Get selected row indices
+        
+            // Check if any row is selected
+            if (aSelectedIndices.length === 0) {
+                MessageBox.warning("Please select a record to edit.");
+                return;
+            }
+        
+            // Only proceed with the first selected row (for single record editing)
+            let iIndex = aSelectedIndices[0];
+            let oContext = oTable.getContextByIndex(iIndex);
+            let sKunnr = oContext.getProperty("Kunnr");
+        
+            // Check if sKunnr exists
+            if (!sKunnr) {
+                MessageBox.error("Failed to retrieve Kunnr from the selected row.");
+                return;
+            }
+        
+            // Navigate to EditRecord view with Kunnr as a route parameter
+            this.getOwnerComponent().getRouter().navTo("RouteEditRecord", {
+                Kunnr: sKunnr
+            });
         }
     });
 });
