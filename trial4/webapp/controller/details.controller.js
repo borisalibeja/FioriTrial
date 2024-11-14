@@ -14,15 +14,13 @@ sap.ui.define([
 
         _onObjectMatched: function (oEvent) {
             // Retrieve the Kunnr parameter from the route
-            let buttonPressed = oEvent.getSource();
-            let context = buttonPressed.getBindingContext('listModel');
-            let sKunnr = context.getProperty('Kunnr');
+            let sKunnr = oEvent.getParameter("arguments").Kunnr;
+
             // Construct the URL for fetching the specific customer data based on Kunnr
             let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
             let appPath = appId.replaceAll(".", "/");
             let appModulePath = jQuery.sap.getModulePath(appPath);
-            
-
+        
             // Create a new JSONModel to store the fetched customer data
             let oModel = new JSONModel();
             let that = this;
@@ -30,14 +28,14 @@ sap.ui.define([
             // Make an AJAX call to fetch the specific record
             $.ajax({
                 
-                url: appModulePath + "/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/zba_testSet(Kunnr='${sKunnr}')",
+                url: `${appModulePath}/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/zba_testSet(Kunnr='${sKunnr}')`,
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
                     // Check if data was returned
-                    if (data && data.d && data.d.results && data.d.results.length > 0) {
-                        // Set the first result as the model for the details view
-                        oModel.setData(data.d.results[0]);
+                    if (data && data.d) {
+                        // Set the data as the model for the details view
+                        oModel.setData(data.d);
                         that.getView().setModel(oModel, "detailsModel");
                     } else {
                         MessageBox.error("No data found for the specified Kunnr");
