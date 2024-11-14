@@ -209,8 +209,14 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
                 MessageBox.warning("Please select a record to edit.");
                 return;
             }
-        
-            // Only proceed with the first selected row (for single record editing)
+
+            // Check if more than one row is selected
+            if (aSelectedIndices.length > 1) {
+                MessageBox.warning("Please select only one record to edit.");
+                return;
+            }
+
+            // Proceed with the selected row for editing
             let iIndex = aSelectedIndices[0];
             let oContext = oTable.getContextByIndex(iIndex);
             let sKunnr = oContext.getProperty("Kunnr");

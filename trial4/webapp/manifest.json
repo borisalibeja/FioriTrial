@@ -129,7 +129,7 @@
         },
         {
           "name": "RouteEditRecord",
-          "pattern": "editRecord",
+          "pattern": "editRecord/{Kunnr}",
           "target": ["TargetEditRecord"]
         }
       ],
