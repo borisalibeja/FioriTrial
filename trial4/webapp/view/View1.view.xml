@@ -29,6 +29,16 @@
 				</m:customData>
 			</m:Button>
 
+			<!-- Toolbar with Action Buttons and Title -->
+            <m:Toolbar id="tableToolbar">
+                <m:Title id="titleToolBar" text="{i18n>tableName}" />
+                <m:ToolbarSpacer id="_IDGenToolbarSpacer" /> <!-- Pushes buttons to the right -->
+
+                <m:Button id="addRecordButton" icon="sap-icon://add" text="Add Record" press="onAddRecord" />
+                <m:Button id="editRecordButton" icon="sap-icon://edit" text="Edit Record" press="onEditRecord" />
+                <m:Button id="deleteRecordButton" icon="sap-icon://delete" text="Delete Record" press="onDeleteRecord" />
+            </m:Toolbar>
+
 			<!-- Toolbar with Plant Search -->
             <m:Toolbar id="searchToolbar">
                 <m:Label id="_IDGenLabel" text="{i18n>client}" />

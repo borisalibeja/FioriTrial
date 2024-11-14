@@ -119,6 +119,15 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             this.getOwnerComponent().getRouter().navTo('RouteDetails', {
                 Kunnr: paddedKunnr
             });
+        },
+        onAddRecord: function () {
+            // Navigate to the AddRecord view
+            this.getOwnerComponent().getRouter().navTo("RouteAddRecord");
+        },
+        
+        onEditRecord: function (oEvent) {
+            // Here you can pass the selected record details if necessary
+            this.getOwnerComponent().getRouter().navTo("RouteEditRecord");
         }
     });
 });

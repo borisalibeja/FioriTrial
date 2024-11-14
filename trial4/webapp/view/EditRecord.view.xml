@@ -1,0 +1,50 @@
+<mvc:View controllerName="trial4.controller.EditRecord"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.m">
+    
+    <m:Page id="EditRecord" title="Edit Record">
+        <m:content>
+            <m:VBox id="_IDGenVBox2">
+                <!-- Fields for Editing an Existing Record -->
+                <m:Label id="_IDGenLabel13" text="First Name" />
+                <m:Input id="_IDGenInput9" placeholder="Enter First Name" value="{recordModel>/Name1}" width="150px" />
+
+                <m:Label id="_IDGenLabel14" text="Last Name" />
+                <m:Input id="_IDGenInput10" placeholder="Enter Last Name" value="{recordModel>/Name2}" width="150px" />
+
+                <m:Label id="_IDGenLabel15" text="Tax Number 1" />
+                <m:Input id="_IDGenInput11" placeholder="Enter Tax Number 1" value="{recordModel>/Stcd1}" width="150px" />
+
+                <m:Label id="_IDGenLabel16" text="Tax Number 2" />
+                <m:Input id="_IDGenInput12" placeholder="Enter Tax Number 2" value="{recordModel>/Stcd2}" width="150px" />
+
+                <m:Label id="_IDGenLabel22" text="Email" />
+                <m:Input id="_IDGenInput13" placeholder="Enter Email" value="{recordModel>/SmtpAddr}" width="150px" />
+
+                <m:Label id="_IDGenLabel23" text="Street" />
+                <m:Input id="_IDGenInput14" placeholder="Enter Street" value="{recordModel>/Street}" width="150px" />
+
+                <m:Label id="_IDGenLabel24" text="City" />
+                <m:Input id="_IDGenInput15" placeholder="Enter City" value="{recordModel>/City1}" width="150px" />
+
+                <m:Label id="_IDGenLabel25" text="Telephone Number" />
+                <m:Input id="_IDGenInput16" placeholder="Enter Telephone Number" value="{recordModel>/TelNumber}" width="150px" />
+
+                <m:Label id="_IDGenLabel26" text="Status" />
+                <m:Input id="_IDGenInput17" placeholder="Enter Status" value="{recordModel>/Stkzn}" width="150px" />
+
+                <!-- Save and Cancel Buttons -->
+                <m:Toolbar id="_IDGenToolbar1">
+                    <m:Button id="_IDGenButton6" text="Save Changes" press="onSaveChanges" />
+                    <m:Button id="_IDGenButton7" text="Cancel" press="onCancel" />
+                </m:Toolbar>
+            </m:VBox>
+
+        </m:content>
+    </m:Page>
+</mvc:View>

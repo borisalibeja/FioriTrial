@@ -121,6 +121,16 @@
           "target": [
             "TargetDetails"
           ]
+        },
+        {
+          "name": "RouteAddRecord",
+          "pattern": "addRecord",
+          "target": ["TargetAddRecord"]
+        },
+        {
+          "name": "RouteEditRecord",
+          "pattern": "editRecord",
+          "target": ["TargetEditRecord"]
         }
       ],
       "targets": {
@@ -144,6 +154,20 @@
           "clearControlAggregation": false,
           "viewId": "details",
           "viewName": "details"
+        },
+        "TargetAddRecord": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "AddRecord",
+          "viewName": "AddRecord"
+        },
+        "TargetEditRecord": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "EditRecord",
+            "viewName": "EditRecord"
         }
       }
     },
