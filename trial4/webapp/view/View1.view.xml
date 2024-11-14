@@ -7,47 +7,63 @@
 	xmlns:core="sap.ui.core"
 	xmlns:m="sap.m" >
 
-    <m:Page id="View1" title="{i18n>title}">
+    <m:Page id="View1" title="{i18n>tableName}">
+
+		<m:customHeader>
+			<m:Bar id="_IDGenBar1">
+			
+				<!-- Title on the left (use contentMiddle for centering) -->
+				<m:contentMiddle>
+					<m:Title id="_IDGenTitle" text="{i18n>tableName}" />
+				</m:contentMiddle>
+
+				<!-- Language selection buttons on the right -->
+				<m:contentRight>
+					<m:Button id="buttonEnglish" text="English" press="onLanguageSelect">
+						<m:customData>
+							<core:CustomData key="langCode" value="en" />
+						</m:customData>
+					</m:Button>
+
+					<m:Button id="buttonItalian" text="Italian" press="onLanguageSelect">
+						<m:customData>
+							<core:CustomData key="langCode" value="it" />
+						</m:customData>
+					</m:Button>
+
+					<m:Button id="buttonAlbanian" text="Albanian" press="onLanguageSelect">
+						<m:customData>
+							<core:CustomData key="langCode" value="al" />
+						</m:customData>
+					</m:Button>
+				</m:contentRight>
+			</m:Bar>
+		</m:customHeader>
+
         <m:content>
 
-			<!-- Language selection Buton -->
-			<m:Button id="_IDGenButtonen" text="English" press="onLanguageSelect">
-				<m:customData>
-					<core:CustomData id="_IDGenCustomDataen" key="langCode" value="en" />
-				</m:customData>
-			</m:Button>
-
-			<m:Button id="_IDGenButton4" text="Italian" press="onLanguageSelect">
-				<m:customData>
-					<core:CustomData id="_IDGenCustomData2" key="langCode" value="it" />
-				</m:customData>
-			</m:Button>
-
-			<m:Button id="_IDGenButton5" text="Albanian" press="onLanguageSelect">
-				<m:customData>
-					<core:CustomData id="_IDGenCustomData3" key="langCode" value="al" />
-				</m:customData>
-			</m:Button>
+			<m:Toolbar id="_IDGenToolbar2" style="Clear" />
 
 			<!-- Toolbar with Action Buttons and Title -->
-            <m:Toolbar id="tableToolbar">
-                <m:Title id="titleToolBar" text="{i18n>tableName}" />
-                <m:ToolbarSpacer id="_IDGenToolbarSpacer" /> <!-- Pushes buttons to the right -->
+			<m:Toolbar id="mainToolbar">
+				<!-- Search Field on the Left -->
+				<m:SearchField 
+					id="plantSearchField" 
+					placeholder="{i18n>clientSearch}" 
+					width="200px"
+					liveChange="onSearch" />
 
-                <m:Button id="addRecordButton" icon="sap-icon://add" text="Add Record" press="onAddRecord" />
-                <m:Button id="editRecordButton" icon="sap-icon://edit" text="Edit Record" press="onEditRecord" />
-                <m:Button id="deleteRecordButton" icon="sap-icon://delete" text="Delete Record" press="onDeleteRecord" />
-            </m:Toolbar>
+				<!-- Spacer to push buttons to the center -->
+				<m:ToolbarSpacer id="_IDGenToolbarSpacer2" />
 
-			<!-- Toolbar with Plant Search -->
-            <m:Toolbar id="searchToolbar">
-                <m:Label id="_IDGenLabel" text="{i18n>client}" />
-                <m:SearchField 
-                    id="plantSearchField" 
-                    placeholder="{i18n>clientSearch}" 
-                    width="200px"
-                    liveChange="onSearch" />
-            </m:Toolbar>
+				<!-- Buttons in the center -->
+				<m:Button id="addRecordButton" icon="sap-icon://add" text="Add Record" press="onAddRecord" />
+				<m:Button id="editRecordButton" icon="sap-icon://edit" text="Edit Record" press="onEditRecord" />
+				<m:Button id="deleteRecordButton" icon="sap-icon://delete" text="Delete Record" press="onDeleteRecord" />
+
+				<!-- Spacer to ensure elements stay centered -->
+				<!-- <m:ToolbarSpacer id="_IDGenToolbarSpacer3" /> -->
+			</m:Toolbar>
 
 			<Table id="_IDGenTable1"
 				rows="{listModel>/results}"
@@ -55,11 +71,11 @@
 				paste="onPaste"
 				ariaLabelledBy="title">
 
-				<extension>
+				<!-- <extension>
 					<m:OverflowToolbar id="_IDGenOverflowToolbar" style="Clear">
 						<m:Title id="title" text="{i18n>tableName}"/>
 					</m:OverflowToolbar>
-				</extension>
+				</extension> -->
 				
 				<columns>
 
