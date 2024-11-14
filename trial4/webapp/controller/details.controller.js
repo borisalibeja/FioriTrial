@@ -11,6 +11,9 @@ sap.ui.define([
             // Attach the route pattern matched event to call _onObjectMatched when RouteDetails is accessed
             this.getOwnerComponent().getRouter().getRoute("RouteDetails").attachPatternMatched(this._onObjectMatched, this);
         },
+        onPress: function()  {
+            this.getOwnerComponent().getRouter().navTo("RouteView1");
+        },
 
         _onObjectMatched: function (oEvent) {
             // Retrieve the Kunnr parameter from the route
