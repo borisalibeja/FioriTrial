@@ -3,11 +3,12 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
+    "sap/m/MessageToast",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
     
 ],
-function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
+function (Controller, JSONModel, MessageBox, MessageToast) {
     "use strict";
  
     return Controller.extend("trial4.controller.View1", {
@@ -20,6 +21,78 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
             this.getOwnerComponent().getRouter().navTo("RouteView2");
         },
 
+        onDeleteRecord: function () {
+            let oTable = this.byId("_IDGenTable1"); // Get reference to the table
+            let aSelectedIndices = oTable.getSelectedIndices(); // Get selected row indices
+
+            if (aSelectedIndices.length === 0) {
+                MessageBox.warning("Please select a record to delete.");
+                return;
+            }
+
+            let aSelectedRows = []; // Array to store selected Kunnr values
+            let oModel = this.getView().getModel("listModel");
+
+            // Loop through selected rows to get Kunnr values
+            aSelectedIndices.forEach((iIndex) => {
+                let oContext = oTable.getContextByIndex(iIndex);
+                let sKunnr = oContext.getProperty("Kunnr");
+                aSelectedRows.push(sKunnr);
+            });
+
+            // Define appModulePath for backend URL
+            let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
+            let appPath = appId.replaceAll(".", "/");
+            let appModulePath = jQuery.sap.getModulePath(appPath);
+
+            // Perform the delete operation
+            this._deleteRecords(aSelectedRows, appModulePath, () => {
+                 this.calltoDB(); // Refresh the data after deletion
+            });
+        },
+
+        _deleteRecords: function (aSelectedRows, appModulePath, callBack) {
+            let aPromises = []; // Handle multiple delete requests if multiple rows are selected
+        
+            aSelectedRows.forEach((sKunnr) => {
+                let oDeletePromise = new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: `${appModulePath}/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/zba_testSet(Kunnr='${sKunnr}')`,
+                        type: "DELETE",
+                        headers: {
+                            "X-CSRF-Token": this._csrfToken // Pass the CSRF token in the headers
+                        },
+                        statusCode: {
+                            204: () => { // Check for 204 No Content as a successful deletion
+                                MessageToast.show(`Record with Kunnr ${sKunnr} deleted successfully.`);
+                                resolve();
+                            }
+                        },
+                        success: () => {
+                            // Fallback success handler if 200 OK is returned instead of 204
+                            MessageToast.show(`Record with Kunnr ${sKunnr} deleted successfully.`);
+                            resolve();
+                        },
+                        error: (err) => {
+                            // Show error message and reject the promise if error occurs
+                            MessageBox.error(`Failed to delete record with Kunnr ${sKunnr}.`);
+                            reject(err);
+                        }
+                    });
+                });
+        
+                aPromises.push(oDeletePromise);
+            });
+        
+            // After all delete requests are complete, execute the callback function (e.g., to refresh data)
+            Promise.all(aPromises)
+                .then(() => {
+                    if (typeof callBack === "function") {
+                        callBack(); // Execute the callback (refresh data, etc.)
+                    }
+                })
+                .catch((err) => console.error("Error in deletion:", err));
+        },
  
         calltoDB: function () {
             let that = this;
@@ -34,7 +107,11 @@ function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
                     url: appModulePath + "/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/zba_testSet",
                     type: "GET",
                     dataType: "json",
-                    success: function (data) {
+                    headers: {
+                        "X-CSRF-Token": "Fetch"
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        that._csrfToken = jqXHR.getResponseHeader("X-CSRF-Token");
                         oModel.setData(data.d)                              //set data on oModel
                         that.getView().setModel(oModel, "listModel");       // Set model to view with name "listModel"
                         resolve();                                          // Resolve the promise
