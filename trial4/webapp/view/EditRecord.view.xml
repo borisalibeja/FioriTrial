@@ -10,6 +10,11 @@
     <m:Page id="EditRecord" title="Edit Record">
         <m:content>
             <m:VBox id="_IDGenVBox2">
+
+                <!-- Display Kunnr as a non-editable field -->
+                <m:Label id="_IDGenLabel28" text="Customer Number (Kunnr)" />
+                <m:Text id="_IDGenText" text="{recordModel>/Kunnr}" width="150px" />
+                
                 <!-- Fields for Editing an Existing Record -->
                 <m:Label id="_IDGenLabel13" text="First Name" />
                 <m:Input id="_IDGenInput9" placeholder="Enter First Name" value="{recordModel>/Name1}" width="150px" />

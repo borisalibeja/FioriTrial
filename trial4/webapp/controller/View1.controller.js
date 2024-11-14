@@ -24,30 +24,40 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
         onDeleteRecord: function () {
             let oTable = this.byId("_IDGenTable1"); // Get reference to the table
             let aSelectedIndices = oTable.getSelectedIndices(); // Get selected row indices
-
+        
             if (aSelectedIndices.length === 0) {
                 MessageBox.warning("Please select a record to delete.");
                 return;
             }
-
-            let aSelectedRows = []; // Array to store selected Kunnr values
-            let oModel = this.getView().getModel("listModel");
-
-            // Loop through selected rows to get Kunnr values
+        
+            let aSelectedRows = []; // Array to store selected Kunnr values and names for the message
+        
+            // Loop through selected rows to get Kunnr and Name1 (customer name) values
             aSelectedIndices.forEach((iIndex) => {
                 let oContext = oTable.getContextByIndex(iIndex);
                 let sKunnr = oContext.getProperty("Kunnr");
-                aSelectedRows.push(sKunnr);
+                let sCustomerName = oContext.getProperty("Name1"); // Assuming Name1 holds the customer name
+                aSelectedRows.push({ Kunnr: sKunnr, CustomerName: sCustomerName });
             });
-
-            // Define appModulePath for backend URL
-            let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
-            let appPath = appId.replaceAll(".", "/");
-            let appModulePath = jQuery.sap.getModulePath(appPath);
-
-            // Perform the delete operation
-            this._deleteRecords(aSelectedRows, appModulePath, () => {
-                 this.calltoDB(); // Refresh the data after deletion
+        
+            // Confirm deletion for each selected row (only proceed with one if multiple selected)
+            let selectedRecord = aSelectedRows[0]; // Limit to the first selected record for single deletion
+            MessageBox.confirm(`Are you sure you want to delete "${selectedRecord.CustomerName}" with Customer numberr "${selectedRecord.Kunnr}"?`, {
+                actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+                onClose: (oAction) => {
+                    if (oAction === MessageBox.Action.YES) {
+                        // Define appModulePath for backend URL
+                        let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
+                        let appPath = appId.replaceAll(".", "/");
+                        let appModulePath = jQuery.sap.getModulePath(appPath);
+        
+                        // Proceed with the delete operation
+                        this._deleteRecords([selectedRecord.Kunnr], appModulePath, () => {
+                            this.calltoDB(); // Refresh the data after deletion
+                        });
+                    }
+                    // If 'NO' is selected, do nothing (deletion is canceled)
+                }
             });
         },
 
