@@ -15,20 +15,33 @@
             <m:HBox id="_IDGenHBox1" width="100%" justifyContent="Start">
                 <m:VBox id="_IDGenVBox3" width="300px" alignItems="Start" class="sapUiSmallMarginBegin">
                     <!-- Fields for Adding a New Record -->
+                    <m:Label id="_IDGenLabel19" text="{i18n>firstName}" required="true" />
                     <m:Input id="_IDGenInput" 
                              placeholder="{i18n>firstName}" 
                              width="200px" />
 
+                    <m:Label id="_IDGenLabel20" text="{i18n>secondName}" required="true" />
                     <m:Input id="_IDGenInput1" 
                              placeholder="{i18n>secondName}" 
                              width="200px" />
 
+                    <m:Label id="_IDGenLabel21" text="{i18n>email}" required="true" />
                     <m:Input id="_IDGenInput4" 
                              placeholder="{i18n>email}" 
                              width="200px" />
 
+                    <m:Label id="_IDGenLabel22" text="{i18n>telNr}" required="true" />
                     <m:Input id="_IDGenInput7" 
                              placeholder="{i18n>telNr}" 
+                             width="200px" />
+
+                    <m:Label id="_IDGenLabel23" text="{i18n>taxNr1}" required="true" />
+                    <m:Input id="_IDGenInput2" 
+                             placeholder="{i18n>taxNr1}" 
+                             width="200px" />
+
+                    <m:Input id="_IDGenInput3" 
+                             placeholder="{i18n>taxNr2}" 
                              width="200px" />
 
                     <m:Input id="_IDGenInput5" 
@@ -37,14 +50,6 @@
 
                     <m:Input id="_IDGenInput6" 
                              placeholder="{i18n>city}" 
-                             width="200px" />
-
-                    <m:Input id="_IDGenInput2" 
-                             placeholder="{i18n>taxNr1}" 
-                             width="200px" />
-
-                    <m:Input id="_IDGenInput3" 
-                             placeholder="{i18n>taxNr2}" 
                              width="200px" />
 
                     <m:Input id="_IDGenInput8" 

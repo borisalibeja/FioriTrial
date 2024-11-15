@@ -22,7 +22,6 @@ sap.ui.define([
         },
 
         _fetchRecordData: function (sKunnr) {
-            // Construct the URL for fetching the record data
             let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
             let appPath = appId.replaceAll(".", "/");
             let appModulePath = jQuery.sap.getModulePath(appPath);
@@ -40,11 +39,9 @@ sap.ui.define([
                     "X-CSRF-Token": "Fetch" // Request CSRF token
                 },
                 success: function (data, textStatus, jqXHR) {
-                    // Store CSRF token for later use
                     that._csrfToken = jqXHR.getResponseHeader("X-CSRF-Token");
 
                     if (data && data.d) {
-                        // Populate the model with fetched data and bind to input fields
                         oModel.setData(data.d);
                         that.getView().setModel(oModel, "recordModel");
                     } else {
@@ -58,35 +55,55 @@ sap.ui.define([
         },
 
         onSaveChanges: function () {
-            // Get the updated data from the input fields
-            let oUpdatedData = this.getView().getModel("recordModel").getData();
+            let oView = this.getView();
+            let aRequiredFields = [
+                oView.byId("_IDGenInput9"),  // First Name
+                oView.byId("_IDGenInput10"), // Last Name
+                oView.byId("_IDGenInput11"), // Tax Number 1
+                oView.byId("_IDGenInput13"), // Email
+                oView.byId("_IDGenInput16")  // Telephone Number
+            ];
 
-            // Ensure CSRF token is available
+            let bValidationError = false;
+
+            // Validate required fields
+            aRequiredFields.forEach((oInput) => {
+                if (!oInput.getValue()) {
+                    oInput.setValueState("Error");
+                    bValidationError = true;
+                } else {
+                    oInput.setValueState("None");
+                }
+            });
+
+            if (bValidationError) {
+                MessageBox.error("Please fill all required fields.");
+                return; // Stop execution if validation fails
+            }
+
+            let oUpdatedData = oView.getModel("recordModel").getData();
+
             if (!this._csrfToken) {
                 MessageBox.error("CSRF token is missing. Please try again.");
                 return;
             }
 
-            // Define appModulePath for the backend URL
             let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
             let appPath = appId.replaceAll(".", "/");
             let appModulePath = jQuery.sap.getModulePath(appPath);
-
-            // Construct URL for updating the record
             let sUrl = `${appModulePath}/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/zba_testSet(Kunnr='${this.sKunnr}')`;
 
-            // PUT request to update the record with new data
             $.ajax({
                 url: sUrl,
                 type: "PUT",
                 contentType: "application/json",
                 headers: {
-                    "X-CSRF-Token": this._csrfToken // Use the stored CSRF token
+                    "X-CSRF-Token": this._csrfToken
                 },
-                data: JSON.stringify(oUpdatedData), // Send updated data as JSON
+                data: JSON.stringify(oUpdatedData),
                 success: () => {
                     MessageToast.show("Record updated successfully!");
-                    this.getOwnerComponent().getRouter().navTo("RouteView1"); // Adjust to navigate back as needed
+                    this.getOwnerComponent().getRouter().navTo("RouteView1");
                 },
                 error: (err) => {
                     MessageBox.error("Failed to update record: " + err.statusText);
@@ -95,8 +112,7 @@ sap.ui.define([
         },
 
         onCancel: function () {
-            // Navigate back to the previous route
-            this.getOwnerComponent().getRouter().navTo("RouteView1"); // Adjust with actual route as needed
+            this.getOwnerComponent().getRouter().navTo("RouteView1");
         }
     });
 });
