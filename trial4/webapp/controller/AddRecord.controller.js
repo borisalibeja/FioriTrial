@@ -94,6 +94,11 @@ sap.ui.define([
                 success: () => {
                     sap.m.MessageToast.show("Record added successfully!");
                     this._clearInputs();
+
+                    // HIGHLIGHTED CHANGE: Publish dataUpdated event to refresh main view
+                    console.log("Publishing dataUpdated event after record addition");
+                    sap.ui.getCore().getEventBus().publish("dataChannel", "dataUpdated");
+
                     this.getOwnerComponent().getRouter().navTo("RouteView1");
                 },
                 error: (err) => {

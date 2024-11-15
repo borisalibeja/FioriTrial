@@ -102,7 +102,8 @@ sap.ui.define([
                 },
                 data: JSON.stringify(oUpdatedData),
                 success: () => {
-                    MessageToast.show("Record updated successfully!");
+                    sap.m.MessageToast.show("Record updated successfully!");
+                    sap.ui.getCore().getEventBus().publish("dataChannel", "dataUpdated"); // Notify the main view
                     this.getOwnerComponent().getRouter().navTo("RouteView1");
                 },
                 error: (err) => {
@@ -110,7 +111,6 @@ sap.ui.define([
                 }
             });
         },
-
         onCancel: function () {
             this.getOwnerComponent().getRouter().navTo("RouteView1");
         }
