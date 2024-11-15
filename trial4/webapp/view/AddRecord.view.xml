@@ -2,48 +2,63 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.ui.table"
-	xmlns:u="sap.ui.unified"
-	xmlns:c="sap.ui.core"
-	xmlns:core="sap.ui.core"
-	xmlns:m="sap.m">
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:core="sap.ui.core"
+    xmlns:m="sap.m">
     
-    <m:Page id="AddRecord" title="Add Record">
+    <m:Page id="AddRecord" title="{i18n>tableName}">
         <m:content>
-            <m:VBox id="_IDGenVBox3">
-                <!-- Fields for Adding a New Record -->
-                <m:Label id="_IDGenLabel5" text="First Name" />
-                <m:Input id="_IDGenInput" placeholder="Antonio" width="150px" />
+            <m:Text id="_IDGenText65" text=" " width="30px" />
+            
+            <!-- Wrapper HBox for Padding -->
+            <m:HBox id="_IDGenHBox1" width="100%" justifyContent="Start">
+                <m:VBox id="_IDGenVBox3" width="300px" alignItems="Start" class="sapUiSmallMarginBegin">
+                    <!-- Fields for Adding a New Record -->
+                    <m:Input id="_IDGenInput" 
+                             placeholder="{i18n>firstName}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel10" text="Last Name" />
-                <m:Input id="_IDGenInput1" placeholder="Colabianchi" width="150px" />
+                    <m:Input id="_IDGenInput1" 
+                             placeholder="{i18n>secondName}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel11" text="Tax Number 1" />
-                <m:Input id="_IDGenInput2" placeholder="56782345" width="150px" />
+                    <m:Input id="_IDGenInput4" 
+                             placeholder="{i18n>email}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel12" text="Tax Number 2" />
-                <m:Input id="_IDGenInput3" placeholder="34252345" width="150px" />
+                    <m:Input id="_IDGenInput7" 
+                             placeholder="{i18n>telNr}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel17" text="Email" />
-                <m:Input id="_IDGenInput4" placeholder="Antonio@gmail.com" width="150px" />
+                    <m:Input id="_IDGenInput5" 
+                             placeholder="{i18n>address}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel18" text="Street" />
-                <m:Input id="_IDGenInput5" placeholder="5 majsdfg" width="150px" />
+                    <m:Input id="_IDGenInput6" 
+                             placeholder="{i18n>city}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel19" text="City" />
-                <m:Input id="_IDGenInput6" placeholder="Milanofdsg" width="150px" />
+                    <m:Input id="_IDGenInput2" 
+                             placeholder="{i18n>taxNr1}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel20" text="Telephone Number" />
-                <m:Input id="_IDGenInput7" placeholder="789363344834" width="150px" />
+                    <m:Input id="_IDGenInput3" 
+                             placeholder="{i18n>taxNr2}" 
+                             width="200px" />
 
-                <m:Label id="_IDGenLabel21" text="Status" />
-                <m:Input id="_IDGenInput8" placeholder="X" width="150px" />
+                    <m:Input id="_IDGenInput8" 
+                             placeholder="{i18n>indicator}" 
+                             width="200px" />
 
-                <!-- Save and Cancel Buttons -->
-                <m:Toolbar id="_IDGenToolbar">
-                    <m:Button id="_IDGenButton2" text="Save" press="onSave" />
-                    <m:Button id="_IDGenButton3" text="Cancel" press="onCancel" />
-                </m:Toolbar>
-            </m:VBox>
+                    <!-- Save and Cancel Buttons -->
+                </m:VBox>
+            </m:HBox>
+            
+            <m:Toolbar id="_IDGenToolbar" width="150px">
+                <m:Button id="_IDGenButton2" text="Save" press="onSave" />
+                <m:Button id="_IDGenButton3" text="Cancel" press="onCancel" />
+            </m:Toolbar>
         </m:content>
     </m:Page>
 </mvc:View>
