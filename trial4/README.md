@@ -1,4 +1,4 @@
-# App Title (trial4)
+# App Title - Trial 4
 
 ## Description
 This is a simple SAP Fiori application that interacts with an OData service to display and manage data. The app was generated using the SAP Fiori tools suite and is styled using the `sap_horizon` theme for a modern, responsive UI.
@@ -6,7 +6,7 @@ This is a simple SAP Fiori application that interacts with an OData service to d
 ## Features
 - Responsive Fiori UI built with UI5 (version 1.130.0).
 - Integration with an OData service available at `https://academytrial.dest/`.
-- Mock data support for local development.
+- All CRUD Operations available on the table
 
 ## Pre-requisites
 - [Node.js LTS](https://nodejs.org) (e.g., v20.x or higher).
@@ -58,7 +58,10 @@ This is a simple SAP Fiori application that interacts with an OData service to d
     Run trial4
     ```
     - This will open the app in your default browser at `http://localhost:6004`.
-
+5. In Case that page runs into error:
+    1. Delete the services manually from the BTP account, 
+    2. Delete the .env file under the .vscode folder
+    3. Repeat again the proccess 2.4 describet above
 
 ### Running with Mock Data
 If the OData service is not accessible, you can run the app with mock data:
