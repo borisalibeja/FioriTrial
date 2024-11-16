@@ -1,0 +1,21 @@
+{
+    "source": {
+      "include": [
+        "../trial4/webapp/controller",
+        "../trial4/webapp/utils"
+      ],   
+      "exclude": ["node_modules"]            
+    },
+    "opts": {
+      "destination": "./docs",               
+      "recurse": true,                      
+      "readme": "./README.md"              
+    },
+    "templates": {
+      "default": {
+        "includeDate": false,              
+        "outputSourceFiles": true           
+    }
+  }
+}
+  
