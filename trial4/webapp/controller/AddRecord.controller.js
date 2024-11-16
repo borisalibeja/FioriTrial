@@ -1,39 +1,24 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
+    "trial4/utils/CSRFTokenManager",
     "sap/m/MessageBox",
     "sap/m/MessageToast"
-], function (Controller, MessageBox, MessageToast) {
+], function (Controller, CSRFTokenManager, MessageBox, MessageToast) {
     "use strict";
 
     return Controller.extend("trial4.controller.AddRecord", {
 
-        onInit: function () {
-            this._fetchCsrfToken(); // Fetch CSRF token when initializing
-        },
-
-        _fetchCsrfToken: function () {
-            let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
-            let appPath = appId.replaceAll(".", "/");
-            let appModulePath = jQuery.sap.getModulePath(appPath);
-            let that = this;
-
-            $.ajax({
-                url: `${appModulePath}/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/`, // Endpoint for CSRF token
-                type: "GET",
-                headers: {
-                    "X-CSRF-Token": "Fetch"
-                },
-                success: function (data, textStatus, jqXHR) {
-                    // Store the CSRF token for later use
-                    that._csrfToken = jqXHR.getResponseHeader("X-CSRF-Token");
-                },
-                error: function () {
-                    MessageBox.error("Failed to fetch CSRF token.");
-                }
-            });
-        },
-
         onSave: function () {
+
+            // Retrieve the CSRF token from CSRFTokenManager
+            const csrfToken = CSRFTokenManager.getToken();
+
+            // Check if the CSRF token is available
+            if (!csrfToken) {
+                MessageBox.error("CSRF token is not available. Please fetch it first.");
+                return;
+            }
+
             // Retrieve data from input fields
             let oView = this.getView();
             let aRequiredFields = [
@@ -73,11 +58,6 @@ sap.ui.define([
                 Stkzn: oView.byId("_IDGenInput8").getValue()
             };
         
-            if (!this._csrfToken) {
-                sap.m.MessageBox.error("CSRF token is missing. Please try again.");
-                return;
-            }
-        
             let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
             let appPath = appId.replaceAll(".", "/");
             let appModulePath = jQuery.sap.getModulePath(appPath);
@@ -88,7 +68,7 @@ sap.ui.define([
                 type: "POST",
                 contentType: "application/json",
                 headers: {
-                    "X-CSRF-Token": this._csrfToken
+                    "X-CSRF-Token": csrfToken // Use the retrieved CSRF token
                 },
                 data: JSON.stringify(oNewRecordData),
                 success: () => {

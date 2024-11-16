@@ -1,12 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
+    "trial4/utils/CSRFTokenManager",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
     "sap/m/MessageToast",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
 ],
-function (Controller, JSONModel, MessageBox, MessageToast) {
+function (Controller, CSRFTokenManager, JSONModel, MessageBox, MessageToast) {
     "use strict";
  
     return Controller.extend("trial4.controller.View1", {
@@ -71,15 +72,25 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
         },
         
         _deleteRecords: function (aSelectedRows, appModulePath, callBack) {
+            // Retrieve the CSRF token from CSRFTokenManager
+            const csrfToken = CSRFTokenManager.getToken();
+
+            // Check if the CSRF token is available
+            if (!csrfToken) {
+                MessageBox.error("CSRF token is not available. Please fetch it first.");
+                return;
+            }
+
             let aPromises = [];
-        
+
+            // Iterate over selected rows to create delete requests
             aSelectedRows.forEach((sKunnr) => {
                 let oDeletePromise = new Promise((resolve, reject) => {
                     $.ajax({
                         url: `${appModulePath}/odata/sap/opu/odata/sap/ZBA_TEST_PROJECT_SRV/zba_testSet(Kunnr='${sKunnr}')`,
                         type: "DELETE",
                         headers: {
-                            "X-CSRF-Token": this._csrfToken
+                            "X-CSRF-Token": csrfToken // Use the retrieved CSRF token
                         },
                         success: () => {
                             MessageToast.show(`Record with Kunnr ${sKunnr} deleted successfully.`);
@@ -93,7 +104,8 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
                 });
                 aPromises.push(oDeletePromise);
             });
-        
+
+            // Handle all delete requests
             Promise.all(aPromises)
                 .then(() => {
                     if (typeof callBack === "function") {
@@ -119,13 +131,16 @@ function (Controller, JSONModel, MessageBox, MessageToast) {
                         "X-CSRF-Token": "Fetch"
                     },
                     success: function (data, textStatus, jqXHR) {
-                        that._csrfToken = jqXHR.getResponseHeader("X-CSRF-Token");
+                        let token = jqXHR.getResponseHeader("X-CSRF-Token");
+
+                        CSRFTokenManager.setToken(token); // Directly use the imported CSRFTokenManager
+                
                         oModel.setData(data.d);
                         that.getView().setModel(oModel, "listModel");
                         resolve();
                     },
-                    error: function (err, textStatus) {
-                        MessageBox.error("Error loading data: " + textStatus);
+                    error: function (err) {
+                        MessageBox.error("Error loading data: " + err.statusText);
                         reject(err);
                     }
                 });
