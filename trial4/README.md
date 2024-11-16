@@ -1,42 +1,36 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Wed Nov 06 2024 08:39:59 GMT+0000 (Coordinated Universal Time)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.15.3|
-|**Generation Platform**<br>SAP Business Application Studio|
-|**Template Used**<br>simple|
-|**Service Type**<br>OData Url|
-|**Service URL**<br>https://academytrial.dest/|
-|**Module Name**<br>trial4|
-|**Application Title**<br>App Title|
-|**Namespace**<br>|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.130.0|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
-|**Add Eslint configuration**<br>False|
+# App Title (trial4)
 
-## trial4
+## Description
+This is a simple SAP Fiori application that interacts with an OData service to display and manage data. The app was generated using the SAP Fiori tools suite and is styled using the `sap_horizon` theme for a modern, responsive UI.
 
-An SAP Fiori application.
+## Features
+- Responsive Fiori UI built with UI5 (version 1.130.0).
+- Integration with an OData service available at `https://academytrial.dest/`.
+- Mock data support for local development.
 
-### Starting the generated app
+## Pre-requisites
+- [Node.js LTS](https://nodejs.org) (e.g., v16.x or higher).
+- [NPM](https://www.npmjs.com/) (v8.x or higher).
+- Active OData service at the specified URL or a local mock setup.
 
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply run the following from the generated app root folder:
-
-```
+## Getting Started
+### Running the App
+1. Clone this repository and navigate to the project root:
+    ```bash
+    git clone <repo-url>
+    cd trial4
+    ```
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+3. Start the application:
+    ```bash
     npm start
-```
+    ```
+    - This will open the app in your default browser at `http://localhost:8080`.
 
-- It is also possible to run the application using mock data that reflects the OData Service URL supplied during application generation.  In order to run the application with Mock Data, run the following from the generated app root folder:
-
-```
-    npm run start-mock
-```
-
-#### Pre-requisites:
-
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
-
-
+### Running with Mock Data
+If the OData service is not accessible, you can run the app with mock data:
+```bash
+npm run start-mock
