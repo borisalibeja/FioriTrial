@@ -39,6 +39,7 @@ This is a simple SAP Fiori application that interacts with an OData service to d
     3. Open the terminal:
         ```
         cf login
+        API endpoint: <your cloud foundry API endpoint> (https://api.cf.us10-001.hana.ondemand.com/)
         email: <your btp account email>
         pass: <your btp account pass>
         ```
